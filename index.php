@@ -1,3 +1,10 @@
+<?php
+session_start();
+$notifyHide = false;
+if(isset($_SESSION['sent'])) $notifyText = $_SESSION['sent'];
+else $notifyHide = true;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +114,18 @@
         </div>
         <span class="howTo howToHide" data-howTo="Shift+MouseWheel to scroll"></span>
         <div class="card-list">
-            <div class="card-item c1">
+             <div class="card-item c1">
+               <div class="card-header">
+		       <h3 class="card-item__title">Car Center</h3>
+                    <p class="card-item__detail">A simple single-page website to show services, team members, and their partners. It can be controled in admin panel as well. built with Laravel framework</p>
+               </div>
+                <div class="card-btn-container">
+                    <button class="btn card-btn" aria-hidden="true" tabindex="-1"><a href="https://github.com/AlanD20/car-center">Code</a></button>
+                    <button class="btn card-btn" aria-hidden="true" tabindex="-1"><a href="https://car-center.aland20.tech/">Preview</a></button>
+                </div>
+            </div>
+
+		<div class="card-item c1">
                <div class="card-header">
                     <h3 class="card-item__title">R1Store</h3>
                     <p class="card-item__detail">A simple e-commerce website that allows users to add items to their bag, search for items on the website. Using HTML, CSS, JavaScript.
@@ -115,13 +133,13 @@
                </div>
                 <div class="card-btn-container">
                     <button class="btn card-btn" aria-hidden="true" tabindex="-1"><a href="https://github.com/AlanD20/r1store">Code</a></button>
-                    <button class="btn card-btn" aria-hidden="true" tabindex="-1"><a href="https://r1store.netlify.app">Preview</a></button>
+                    <button class="btn card-btn" aria-hidden="true" tabindex="-1"><a href="https://r1store.aland20.tech/">Preview</a></button>
                 </div>
             </div>
             <div class="card-item c2">
                 <div class="card-header">
                     <h3 class="card-item__title">LiveChat - Firebase SDK</h3>
-                    <p class="card-item__detail">A simple chat room that allows users to communicate with each other as well as authentication and managing their account. Also, admins have privileges to delete/clear the chat.</p>  
+                    <p class="card-item__detail">A simple chat room that allows communication between users with authentication and managing account. Also, admins have privileges to delete/clear the entire chat.</p>  
                 </div>
                 <div class="card-btn-container">
                     <button class="btn card-btn" aria-hidden="true" tabindex="-1"><a href="https://github.com/AlanD20/LiveChat">Code</a></button>
@@ -196,12 +214,16 @@
             <h4 class=".email">aland20@pm.me</h4>
             <p>Have questions? Feel free to contact me for any feedback and questions. I'd love to answer them.</p>
         </div>
-        <div class="formContainer">
-            <form method="POST" enctype="text/plain" class="contactForm">
+	<div class="formContainer">
+		<span class="email-notify__text text-white font-semibold">
+			<?= isset($notifyText) ? $notifyText : "" ?>
+			<?php session_unset(); session_destroy();?>
+                </span>
+            <form method="POST" action="https://aland20.tech/contact.php" class="contactForm">
                 <h1 class="formTitle">contact form</h1>
-                <input type="text" class="txtField name" name="clientName" placeholder="Name" />
-                <input type="text" class="txtField email" name="clientEmail" placeholder="Email Address"/>
-                <textarea class="msgField" name="clientMsg" placeholder="Your message..."></textarea>
+                <input type="text" class="txtField name" name="name" placeholder="Name" />
+                <input type="text" class="txtField email" name="email" placeholder="Email Address"/>
+                <textarea class="msgField" name="message" placeholder="Your message..."></textarea>
                 <button class="sendBtn">Submit</button>
             </form>
         </div>

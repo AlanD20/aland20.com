@@ -416,7 +416,6 @@ a[href$=".pdf"] {
   flex-wrap: wrap;
   justify-content: flex-end;
   column-gap: 1rem;
-  padding-block-start: 1rem;
 }
 .card-btn {
   font-size: 1rem;

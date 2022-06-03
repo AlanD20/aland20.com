@@ -25,13 +25,13 @@ stMain.to('.ff', {duration: 1, text: 'PROGRAMMER'})
 .to('.ss', {text: 'WEB DEVELOPER'}, "<");
 
 const cur = location.origin;
-frm.addEventListener('submit', a=>{
+/*frm.addEventListener('submit', a=>{
     a.preventDefault();
     const frmName =frm.clientName.value;
     const frmMsg =frm.clientMsg.value;
     window.open(`mailto:alandsp20@pm.me?subject=Portfolio Feedback from ${frmName}&body=${frmMsg}`,"_blank"),frm.action=cur;
     frm.reset();
-});
+});*/
 
 Draggable.create(document.querySelector('.title'),{bounds: {minY: -150, maxY: 0,minX: -115, maxX: 150} });
 
