@@ -1,0 +1,24 @@
+{
+  "name": "aland20.tech",
+  "version": "1.0.0",
+  "main": "./js/index.js",
+  "author": "AlanD20",
+  "license": "GPL",
+  "description": "",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "cssnano": "^5.0.10",
+    "laravel-mix": "^6.0.37",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19"
+  }
+}
