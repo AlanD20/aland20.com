@@ -1,6 +1,0 @@
-@font-face {
-  font-family: "CP";
-  src: local("../assets/ff/CPM.otf") format("woff"),
-    local("../assets/ff/CPL.otf") format("woff");
-  font-display: swap;
-}

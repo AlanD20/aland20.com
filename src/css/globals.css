@@ -1,0 +1,455 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+html,
+body {
+  font-family: Montserrat, Roboto, "Open Sans", Helvetica, Arial !important;
+  font-weight: 300;
+}
+
+
+@layer base {
+
+  ::selection {
+    @apply bg-primary-normal text-cWhite-300;
+  }
+  a,
+  button,
+  input,
+  textarea,
+  summary,
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible {
+    @apply outline-none border-0 focus-visible:ring-2 focus-visible:ring-primary-400;
+  }
+
+  .btn,
+  .link {
+    @apply px-2 py-2 text-base text-cBlack-300 rounded-lg transition-all duration-150 ease-in font-bold active:!text-primary-700 cursor-pointer select-none whitespace-nowrap text-center;
+  }
+  :is(.btn, .link):is(:hover, :focus),
+  .active-route {
+    @apply text-primary-normal;
+  }
+
+
+  .page-container {
+    @apply h-full grid place-content-center gap-8;
+  }
+  .page-container__title {
+    @apply font-bold text-4xl capitalize;
+  }
+
+  .page-container__title + * {
+    @apply mb-4;
+  }
+  .page-container__link {
+    @apply py-2 px-4 rounded-md text-cWhite-100 bg-primary-light hover:bg-primary-normal focus:bg-primary-normal active:bg-primary-700 justify-self-center;
+  }
+
+  .main-container {
+    @apply px-8 h-screen flex flex-col items-center gap-4;
+  }
+
+  .main-container > * {
+    @apply w-full;
+  }
+
+  .socials {
+    @apply flex flex-col items-center capitalize;
+  }
+  .socials__text {
+    @apply font-semibold;
+  }
+  .socials__links {
+    @apply py-1 flex flex-col md:flex-row md:gap-4 items-center;
+  }
+
+  main,
+  .page--sm {
+    @apply min-w-[25ch] max-w-[64ch];
+  }
+
+  main.page {
+    @apply flex flex-col gap-8 justify-center items-center;
+  }
+  main.page .dashbaord {
+    @apply flex flex-wrap gap-8 justify-center items-center;
+  }
+  main.page .dashbaord > * {
+    @apply flex-1 basis-[300px];
+  }
+  main.page .dashbaord > *:last-child {
+    @apply basis-full;
+  }
+  main.page h3 {
+    @apply font-semibold;
+  }
+  main.page :is(p, span, h2, h3, h4, h5, h6) {
+    @apply self-start;
+  }
+  main.page :is(h2, h3, h4, h5, h6) {
+    @apply text-lg capitalize font-semibold;
+  }
+  main.page .title {
+    @apply text-2xl capitalize font-bold;
+  }
+
+  main.dashboard-page {
+    @apply min-w-[25ch] max-w-[84ch] flex flex-col items-center gap-8;
+  }
+  main.dashboard-page .text-block {
+    @apply flex flex-col gap-2 items-start justify-center;
+  }
+  main.dashboard-page .dashboard-page__header {
+    @apply w-full flex items-center flex-col gap-4 sm:flex-row sm:gap-0;
+  }
+  main.dashboard-page .dashboard-page__header form {
+    @apply w-fit flex items-center;
+  }
+  main.dashboard-page .title {
+    @apply flex gap-1 items-center text-xl capitalize font-bold ml-auto mr-auto;
+  }
+  main.dashboard-page .title .highlight {
+    @apply capitalize text-primary-normal before:content-["_"] after:content-["_"] overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+  main.dashboard-page .go-back {
+    @apply text-2xl bg-primary-light text-cWhite-100 rotate-90 active:!bg-primary-800 active:!text-cWhite-100;
+  }
+  main.dashboard-page .go-back:is(:hover, :focus) {
+    @apply bg-primary-normal;
+  }
+
+  form,
+  fieldset {
+    @apply max-w-[44ch] w-full flex flex-col gap-4 justify-center items-start relative;
+  }
+
+  .field input:not(.btn),
+  .field textarea {
+    @apply py-2 px-3 rounded-md bg-cWhite-200 text-cBlack-300 transition-all duration-150 ease-in;
+  }
+  .field {
+    @apply w-full flex flex-col gap-2 justify-center items-start;
+  }
+  .field > * {
+    @apply w-full;
+  }
+  .field input:is(:hover, :focus):not(.btn),
+  .field textarea:is(:hover, :focus) {
+    @apply text-cBlack-400 bg-cWhite-100 ring-1 ring-primary-400 focus:ring-2 focus:ring-primary-500;
+  }
+  .field input[type="submit"] {
+    @apply w-fit px-8 py-2 self-end capitalize text-lg font-bold;
+  }
+  .field textarea {
+    @apply min-h-[150px] max-h-[350px];
+  }
+  .field label {
+    @apply select-none;
+  }
+
+  .single-faq__title h2 {
+    @apply w-full;
+  }
+
+  .single-faq__content {
+    @apply text-base;
+  }
+  .single-faq[open] .single-faq__title {
+    @apply text-primary-normal mb-2 border-b-2 border-b-cWhite-400;
+  }
+  .single-faq[open] .arrow {
+    @apply down;
+  }
+  .single-faq .single-faq__title ~ * {
+    @apply opacity-0 invisible animate-close-details;
+  }
+  .single-faq[open] .single-faq__title ~ * {
+    @apply opacity-100 visible animate-open-details;
+  }
+
+  .single-faq > summary {
+    @apply !p-4;
+  }
+  .single-faq > p {
+    @apply px-4 pb-4;
+  }
+  .single-faq + .single-faq {
+    @apply mt-4;
+  }
+  .single-faq {
+    @apply relative transition-all duration-150 ease-linear bg-cWhite-200 rounded-2xl hover:-translate-y-1;
+  }
+  .single-faq .single-faq__title {
+    @apply flex items-center gap-4 px-2 pb-1 text-primary-800 list-none text-lg font-semibold select-none capitalize;
+  }
+
+  .cards {
+    @apply flex gap-4 w-full flex-wrap;
+  }
+  .cards .card {
+    @apply flex flex-col gap-4 p-4 min-w-[150px] w-full bg-cWhite-300/50 rounded-2xl text-cBlack-400;
+  }
+  .card .card__header {
+    @apply flex flex-col gap-2 justify-center;
+  }
+  .card .card__title {
+    @apply text-lg font-semibold capitalize;
+  }
+  .card .card__date {
+    @apply text-sm;
+  }
+  .card .card__footer {
+    @apply flex flex-col items-stretch gap-2 sm:flex-row sm:gap-4 sm:justify-between sm:items-center;
+  }
+
+  .list-model {
+    @apply w-full flex flex-wrap gap-8 justify-center;
+  }
+  .single-model {
+    @apply p-4 flex items-start gap-4 w-full bg-cWhite-200 rounded-2xl relative;
+  }
+  .single-model__title + .tag-list {
+    @apply mt-2;
+  }
+  .single-model .single-model__left {
+    @apply flex flex-col items-start justify-center gap-2 min-w-[75%] w-full;
+  }
+
+  .single-model .single-model__right {
+    @apply absolute right-[5%] sm:right-[2%];
+  }
+
+  .tag-list {
+    @apply overflow-y-scroll ml-2 flex gap-2 text-xs items-start flex-wrap pr-4 w-full h-full;
+  }
+  .tag-list .tag-list__item {
+    @apply py-1 px-3 rounded-2xl text-cBlack-400 bg-primary-200 selection:bg-cBlack-300 selection:text-cWhite-100 capitalize
+    transition-all duration-150 ease-in select-none break-all;
+  }
+  .tag-list .tag-list__item:is(:hover, :focus) {
+    @apply bg-primary-600 text-cWhite-100 cursor-pointer;
+  }
+  .contact__dialog {
+    @apply capitalize text-lg font-bold text-cBlack-300 flex justify-center items-center absolute bottom-1/2 bg-cWhite-300 w-[125px] h-[125px] rounded-full;
+  }
+  nav .nav-opener:is(:hover, :focus),
+    nav .nav-open .nav-opener {
+      @apply bg-cWhite-300 text-cBlack-400 ring-2 ring-primary-500;
+    }
+    nav .nav-open ul {
+      @apply visible opacity-100 pointer-events-auto bg-cWhite-200 py-4 px-8 rounded-br-2xl rounded-bl-2xl animate-open-navbar;
+    }
+
+
+  /**
+   Modifiers
+  */
+
+  .btn--primary {
+    @apply px-4 bg-primary-light !text-cWhite-100 active:!text-cWhite-100 active:!bg-primary-700;
+  }
+  .btn--primary:is(:hover, :focus) {
+    @apply bg-primary-normal text-cWhite-100;
+  }
+
+  .btn--secondary {
+    @apply px-4 bg-cBlack-100/40 text-primary-700 active:!text-primary-light active:!bg-cBlack-100/50 font-semibold;
+  }
+  .btn--secondary:is(:hover, :focus) {
+    @apply bg-cBlack-200/50 text-primary-dark;
+  }
+
+  .btn--outline {
+    @apply ring-2 ring-primary-700 !text-cBlack-300 active:!text-cBlack-400 active:!bg-cWhite-100 active:!ring-primary-light;
+  }
+  .btn--outline:is(:hover, :focus) {
+    @apply ring-primary-dark !text-cBlack-400;
+  }
+  .btn--green {
+    @apply bg-green-600 !text-cWhite-100 active:!text-cWhite-100 active:!bg-green-400;
+  }
+  .btn--green:is(:hover, :focus) {
+    @apply bg-green-700 text-cWhite-100;
+  }
+  .btn--red {
+    @apply bg-red-600 !text-cWhite-100 active:!text-cWhite-100 active:!bg-red-400;
+  }
+  .btn--red:is(:hover, :focus) {
+    @apply bg-red-700 text-cWhite-100;
+  }
+
+  .btn--sm {
+    @apply p-0 py-[0.2rem] px-[.5rem];
+  }
+  .btn--lg {
+    @apply text-2xl;
+  }
+  .btn--wide {
+    @apply py-4 px-8 text-2xl;
+  }
+
+
+  nav .title:focus-visible,
+  nav .title *:focus-visible {
+    @apply !ring-0;
+  }
+
+  nav ul {
+    @apply opacity-0 flex flex-col gap-4 items-center absolute invisible pointer-events-none top-full w-full right-0 rounded-md;
+
+    @apply lg:visible lg:pointer-events-auto lg:relative lg:flex-row lg:gap-8 lg:ml-auto lg:items-center lg:top-0 lg:p-0 lg:transition-none lg:opacity-100;
+  }
+
+
+  span.marker.marker--light {
+    @apply font-normal text-primary-dark;
+  }
+
+  .link.link--inline {
+    @apply px-1 py-0;
+  }
+
+  .alert--error {
+    @apply text-red-600;
+  }
+  .alert--success {
+    @apply text-green-600;
+  }
+
+  .field--row {
+    @apply flex gap-2 items-center;
+  }
+
+  .field--text > *:is(input[type="text"], label, p) {
+    @apply flex gap-2 w-full;
+  }
+
+  .field--sm input:not(.btn),
+  .field--sm textarea {
+    @apply py-1 px-3 text-sm;
+  }
+
+  .arrow {
+    @apply marker:text-cBlack-300 transition-all duration-150 ease-in;
+  }
+  .down {
+    @apply -rotate-90;
+  }
+
+
+  header .auth-dialog[open] {
+    @apply animate-open-dialog;
+  }
+  header .auth-dialog .profile {
+    @apply flex flex-row items-center font-bold;
+  }
+
+
+  main.dashboard-page.dashboard-page--sm {
+    @apply page--sm;
+  }
+  main.dashboard-page :is(p, .text-block) {
+    @apply w-full;
+  }
+
+  main.dashboard-page .text-block.inline-pg {
+    @apply flex flex-row gap-4 justify-start;
+  }
+  main.dashboard-page .text-block.inline-pg .single-model__text {
+    @apply w-fit;
+  }
+
+  main.dashboard-page form .option {
+    @apply w-full flex justify-between;
+  }
+
+  .single-model .single-model__title {
+    @apply font-semibold text-sm;
+  }
+  .single-model .single-model__text {
+    @apply p-0;
+  }
+
+  .single-model .single-model__right .pen-icon {
+    @apply rotate-90 px-2 py-1 text-lg;
+  }
+  .single-model--sm {
+    @apply min-w-[150px] max-w-[250px];
+  }
+  .single-model--sm .single-model__right {
+    @apply right-[7%];
+  }
+  .single-model--sm .single-model__left p {
+    @apply whitespace-nowrap overflow-hidden text-ellipsis;
+  }
+  .single-model--md {
+    @apply min-w-[150px] max-w-[350px];
+  }
+
+  .text-block {
+    @apply break-words;
+  }
+  .text-block .link {
+    @apply w-full text-left;
+  }
+  .text-block * {
+    @apply whitespace-normal break-words;
+  }
+
+  .tag-list-selection-container {
+    @apply flex flex-col gap-4 items-start;
+  }
+
+  .tag-list-container {
+    @apply relative w-full h-full min-w-[150px] max-w-[350px];
+  }
+  .tag-list__dialog {
+    @apply w-full absolute -top-2 flex flex-col gap-4 justify-start bg-cWhite-200 rounded-2xl pointer-events-none invisible opacity-0 transition-all duration-150 ease-out h-[250px];
+  }
+  .tag-list__dialog[open] {
+    @apply pointer-events-auto visible opacity-100;
+  }
+  .tag-list__dialog[open] input[name="search"] {
+    @apply ring-2 ring-cBlack-100;
+  }
+
+  .tag-list::-webkit-scrollbar {
+    width: 5px;
+  }
+  .tag-list::-webkit-scrollbar-track {
+    @apply bg-cWhite-100 rounded-lg;
+  }
+  .tag-list::-webkit-scrollbar-thumb {
+    @apply bg-cBlack-200;
+  }
+  .tag-list::-webkit-scrollbar-thumb:hover {
+    @apply bg-cBlack-300;
+  }
+
+  span.marker {
+    @apply font-semibold text-primary-dark;
+  }
+  span.link {
+    @apply select-auto p-0 font-bold text-primary-light hover:text-primary-dark;
+  }
+  main.content-container{
+    @apply gap-2 text-center;
+  }
+  main.content-container .title{
+    @apply text-lg;
+  }
+  main.content-container .text-block{
+    @apply text-base;
+  }
+  .alert {
+    @apply font-semibold capitalize;
+  }
+
+}

@@ -1,0 +1,27 @@
+{
+  "name": "AlanD20 Portfolio",
+  "short_name": "Personal Website of AlanD20s",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#0d0c22",
+  "theme_color": "#C595F1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/128x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/images/200x200.png",
+      "type": "image/png",
+      "sizes": "200x200"
+    },
+    {
+      "src": "/images/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "splash_pages": null
+}

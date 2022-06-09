@@ -1,0 +1,58 @@
+import { NextPage } from "next"
+import { faq } from "@/models/faq"
+import { Faq } from "@prisma/client"
+import NoDataFound from "@misc/NoDataFound"
+import SingleFAQ from "@comp/front-page/SingleFAQ"
+import CustomDirective from "@/modules/CustomDirectives/CustomDirective"
+
+type Props = {
+  faqs: Faq[]
+}
+
+const Faq: NextPage<Props> = ({ faqs }: Props) => {
+
+
+  return (
+    <main className='page faq'>
+      <h1 className='title'>Frequently Asked Questions</h1>
+
+      <p>
+        Here is a list of questions that you may have about the website or what are the reasons behind my choices. So, let me know if you have any other questions. I will try to add new ones in the future.
+      </p>
+
+      <div className="list w-full">
+        {
+          faqs.length > 0 ?
+            faqs.map(faq => (
+              <SingleFAQ {...faq} key={faq.id} />
+
+            )) : <NoDataFound />
+        }
+      </div>
+    </main>
+  )
+}
+
+export async function getServerSideProps() {
+
+  const rawFaqs = await faq.all({
+    orderBy: [
+      { priority: 'desc' },
+      { title: 'asc' },
+    ],
+  });
+
+  const faqs = rawFaqs.map(f => ({
+    ...f,
+    content: CustomDirective(f.content)
+  }));
+
+
+  return {
+    props: {
+      faqs,
+    }
+  }
+}
+
+export default Faq

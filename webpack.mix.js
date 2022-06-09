@@ -1,14 +1,15 @@
 const mix = require('laravel-mix');
 
+mix.setPublicPath('styles');
 mix.options({
   processCssUrls: false
 });
-mix.js('src/js/index.js', 'js')
-  .postCss('src/css/index.css', 'css', [
-    require('tailwindcss'),
-    require('autoprefixer'),
-    require('cssnano')({
-      preset: 'default',
-    }),
-  ]);
+//Do not put a forward slash at the start.
+mix.postCss('src/css/globals.css', 'styles/', [
+  require('tailwindcss'),
+  require('autoprefixer'),
+  require('cssnano')({
+    preset: 'default',
+  }),
+]);
 mix.disableSuccessNotifications();
