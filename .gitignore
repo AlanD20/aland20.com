@@ -39,3 +39,6 @@ prisma/*.sqlite
 
 # VScode Settings
 /.vscode
+
+#ignore compiled css
+/styles/**

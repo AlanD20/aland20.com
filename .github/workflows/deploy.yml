@@ -1,0 +1,43 @@
+name: deploy
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  lint-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - uses: actions/checkout@v3
+      - name: Create env file
+        run: cp .env.example .env
+      - name: Install dependencies
+        run: yarn
+      - name: Run nextjs lint
+        run: yarn lint
+      - name: Run eslint
+        run: yarn eslint
+      - name: Build project
+        run: yarn build
+  deploy:
+    needs: [ "lint-build" ]
+    runs-on: ubuntu-latest
+    steps:
+        - name: Setup rsa keys
+          run: |
+            mkdir ~/.ssh
+            echo "${{ secrets.PUBLIC_KEY }}" > ~/.ssh/authorized_keys
+            chmod 700 ~/.ssh
+            chmod 600 ~/.ssh/authorized_keys
+        - uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.PRIVATE_KEY }}
+            passphrase: ${{ secrets.PASSPHRASE }}
+            port: ${{ secrets.PORT }}
+            script: |
+              bash ${{ secrets.DEPLOY_SCRIPT_PATH}} &> ${{ secrets.DEPLOY_LOG_PATH}}
+              grep -E '\- \[x\]' ${{ secrets.DEPLOY_LOG_PATH}}
+

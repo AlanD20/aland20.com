@@ -6,8 +6,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "npm run mix:prod && next build",
+    "dev": "yarn mix:dev && next dev",
+    "build": "yarn mix:prod && next build",
     "start": "next start",
     "lint": "next lint",
     "mix:dev": "mix",
@@ -16,7 +16,7 @@
     "prisma:studio": "prisma studio",
     "db:push": "prisma db push --force-reset && prisma generate",
     "db:seed": "prisma db seed",
-    "db:reset": "npm run db:push && npm run db:seed",
+    "db:reset": "yarn db:push && yarn db:seed",
     "generate:secret": "openssl rand -base64 32",
     "pm2": "pm2 start pm2.json"
   },

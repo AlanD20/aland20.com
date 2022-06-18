@@ -253,7 +253,7 @@ body {
   */
 
   .btn--primary {
-    @apply px-4 bg-primary-light !text-cWhite-100 active:!text-cWhite-100 active:!bg-primary-700;
+    @apply px-4 bg-primary-light text-cWhite-100 active:text-cWhite-100 active:!bg-primary-700;
   }
   .btn--primary:is(:hover, :focus) {
     @apply bg-primary-normal text-cWhite-100;
@@ -273,13 +273,13 @@ body {
     @apply ring-primary-dark !text-cBlack-400;
   }
   .btn--green {
-    @apply bg-green-600 !text-cWhite-100 active:!text-cWhite-100 active:!bg-green-400;
+    @apply bg-green-600 text-cWhite-100 active:text-cWhite-100 active:!bg-green-400;
   }
   .btn--green:is(:hover, :focus) {
     @apply bg-green-700 text-cWhite-100;
   }
   .btn--red {
-    @apply bg-red-600 !text-cWhite-100 active:!text-cWhite-100 active:!bg-red-400;
+    @apply bg-red-600 text-cWhite-100 active:text-cWhite-100 active:!bg-red-400;
   }
   .btn--red:is(:hover, :focus) {
     @apply bg-red-700 text-cWhite-100;
