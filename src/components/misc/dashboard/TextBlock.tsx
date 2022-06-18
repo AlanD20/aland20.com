@@ -1,6 +1,6 @@
-import TagList from "@misc/TagList";
-import { Tag } from "@prisma/client";
-import { NextPage } from "next"
+import TagList from '@misc/TagList';
+import { Tag } from '@prisma/client';
+import { NextPage } from 'next';
 
 type Props = {
   title: string;
@@ -8,29 +8,36 @@ type Props = {
   link?: string;
   inline?: boolean;
   tags?: Tag[];
-}
+};
 
-const TextBlock: NextPage<Props> = ({ title, content, link, tags, inline = false }: Props) => {
-
-  const cls = inline ? ' inline-pg' : ''
+const TextBlock: NextPage<Props> = ({
+  title,
+  content,
+  link,
+  tags,
+  inline = false,
+}: Props) => {
+  const cls = inline ? ' inline-pg' : '';
   return (
-    <div className={"text-block" + cls}>
+    <div className={`text-block${cls}`}>
       <h1 className="single-model__title">{title}</h1>
 
-      {!link && content &&
-        <p className="single-model__text">{content}</p>
-      }
+      {!link && content && <p className="single-model__text">{content}</p>}
 
       {!link && tags && <TagList tags={tags} />}
 
-      {link &&
-        <a className="link single-model__text" href={link} target="_blank" rel="noreferrer">
+      {link && (
+        <a
+          className="link single-model__text"
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+        >
           {content}
         </a>
-      }
+      )}
+    </div>
+  );
+};
 
-    </div >
-  )
-}
-
-export default TextBlock
+export default TextBlock;

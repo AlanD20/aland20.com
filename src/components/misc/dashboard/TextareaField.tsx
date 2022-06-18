@@ -1,13 +1,16 @@
-import { NextPage } from "next"
+import { NextPage } from 'next';
 
 type Props = {
   title: string;
   name: string;
   defaultValue?: string;
-}
+};
 
-const TextareaField: NextPage<Props> = ({ title, name, defaultValue }: Props) => {
-
+const TextareaField: NextPage<Props> = ({
+  title,
+  name,
+  defaultValue,
+}: Props) => {
   return (
     <div className="field">
       <label htmlFor={name}>{title}</label>
@@ -16,10 +19,9 @@ const TextareaField: NextPage<Props> = ({ title, name, defaultValue }: Props) =>
         id={name}
         required
         defaultValue={defaultValue ?? ''}
-      >
-      </textarea>
+      />
     </div>
-  )
-}
+  );
+};
 
-export default TextareaField
+export default TextareaField;

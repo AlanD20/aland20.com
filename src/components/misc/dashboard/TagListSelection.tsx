@@ -1,55 +1,50 @@
-import { NextPage } from 'next'
-import { Tag } from '@prisma/client'
-import { useState } from 'react'
-import TagList from '@misc/TagList'
-import { toggleTagSelection } from '@/features/tagSelectionSlice'
-import { useAppDispatch } from '@/app/hooks'
-
+import { NextPage } from 'next';
+import { Tag } from '@prisma/client';
+import { useState } from 'react';
+import TagList from '@misc/TagList';
+import { toggleTagSelection } from '@/features/tagSelectionSlice';
+import { useAppDispatch } from '@/app/hooks';
 
 type TagWithSelected = Tag & {
   isSelected: boolean;
-}
+};
 
 type Props = {
-  tags: Tag[],
-  defaultTags?: number[],
-}
+  tags: Tag[];
+  defaultTags?: number[];
+};
 
 const TagListSelection: NextPage<Props> = ({
   tags: allTags,
-  defaultTags = []
+  defaultTags = [],
 }: Props) => {
-
   const dispatch = useAppDispatch();
   // Initial tags
   const [input, setInput] = useState<string>('');
 
-  const [tags, setTags] = useState<TagWithSelected[]>(() => (
-    allTags.map(tag => ({
+  const [tags, setTags] = useState<TagWithSelected[]>(() =>
+    allTags.map((tag) => ({
       ...tag,
-      isSelected: defaultTags.includes(tag.id)
+      isSelected: defaultTags.includes(tag.id),
     }))
-  ));
-
-  const selectedTags = tags.filter(tag => tag.isSelected);
-  const tagIds = selectedTags.map(tag => tag.id).join(',');
-
-  const handleOnClickTagToAdd = (event): void => (
-    filterSelectedProperty({
-      setTags,
-      event,
-      filterTo: true
-    })
-  )
-
-  const handleOnClickTagToDelete = (event): void => (
-    filterSelectedProperty({
-      setTags,
-      event,
-      filterTo: false
-    })
   );
 
+  const selectedTags = tags.filter((tag) => tag.isSelected);
+  const tagIds = selectedTags.map((tag) => tag.id).join(',');
+
+  const handleOnClickTagToAdd = (event): void =>
+    filterSelectedProperty({
+      setTags,
+      event,
+      filterTo: true,
+    });
+
+  const handleOnClickTagToDelete = (event): void =>
+    filterSelectedProperty({
+      setTags,
+      event,
+      filterTo: false,
+    });
 
   const handleOnClickButton = (event) => {
     event.preventDefault();
@@ -59,8 +54,7 @@ const TagListSelection: NextPage<Props> = ({
   const handleOnChangeSearchField = (event) => {
     const value = event.target.value.toLowerCase();
     setInput(value);
-  }
-
+  };
 
   return (
     <div className="field">
@@ -74,7 +68,8 @@ const TagListSelection: NextPage<Props> = ({
           />
         </div>
         <button
-          className='btn btn--secondary btn--lg'
+          type="button"
+          className="btn btn--secondary btn--lg"
           onClick={handleOnClickButton}
         >
           ＋
@@ -91,34 +86,40 @@ const TagListSelection: NextPage<Props> = ({
                 onChange={handleOnChangeSearchField}
               />
             </div>
-            {input === '' &&
+            {input === '' && (
               <TagList
-                tags={tags.filter(t => !t.isSelected)}
-                handleClickEvent={handleOnClickTagToAdd} />
-            }
-            {input !== '' &&
+                tags={tags.filter((t) => !t.isSelected)}
+                handleClickEvent={handleOnClickTagToAdd}
+              />
+            )}
+            {input !== '' && (
               <TagList
-                tags={tags.filter(t => (
-                  t.strict.includes(input) && !t.isSelected
-                ))
-                }
-                handleClickEvent={handleOnClickTagToAdd} />
-            }
+                tags={tags.filter(
+                  (t) => t.strict.includes(input) && !t.isSelected
+                )}
+                handleClickEvent={handleOnClickTagToAdd}
+              />
+            )}
           </dialog>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 function filterSelectedProperty({ event, setTags, filterTo }) {
   event.preventDefault();
   const tagId = Number(event.target.dataset.id);
-  setTags(prev => prev.map(tag => (
-    tag.id !== tagId ? tag : {
-      ...tag, isSelected: filterTo
-    })
-  ));
+  setTags((prev) =>
+    prev.map((tag) =>
+      tag.id !== tagId
+        ? tag
+        : {
+            ...tag,
+            isSelected: filterTo,
+          }
+    )
+  );
 }
 
-export default TagListSelection
+export default TagListSelection;

@@ -1,26 +1,24 @@
-import projects from "./data/projects"
-import faqs from "./data/faqs"
-import skills from "./data/skills"
-import tags from "./data/tags"
+import projects from './data/projects';
+import faqs from './data/faqs';
+import skills from './data/skills';
+import tags from './data/tags';
 
 import { PrismaClient } from '@prisma/client';
-
 
 const prisma = new PrismaClient();
 
 async function main() {
-
   //tags
   for (let t of tags) {
     await prisma.tag.create({
-      data: t
+      data: t,
     });
   }
 
   //faqs
   for (let f of faqs) {
     await prisma.faq.create({
-      data: f
+      data: f,
     });
   }
 
@@ -33,12 +31,16 @@ async function main() {
         content: p.content,
         sourceLink: p.sourceLink,
         previewLink: p.previewLink,
-        createdDate: p.createdDate ? new Date(p.createdDate).toISOString() : null,
-        completedDate: p.completedDate ? new Date(p.completedDate).toISOString() : null,
+        createdDate: p.createdDate
+          ? new Date(p.createdDate).toISOString()
+          : null,
+        completedDate: p.completedDate
+          ? new Date(p.completedDate).toISOString()
+          : null,
         tags: {
-          connect: p.tags
-        }
-      }
+          connect: p.tags,
+        },
+      },
     });
   }
 
@@ -49,18 +51,18 @@ async function main() {
         title: s.title,
         priority: s.priority,
         tags: {
-          connect: s.tags
-        }
-      }
+          connect: s.tags,
+        },
+      },
     });
   }
 }
 
 main()
   .catch((e) => {
-    console.error(e)
-    process.exit(1)
+    console.error(e);
+    process.exit(1);
   })
   .finally(async () => {
-    await prisma.$disconnect()
-  })
+    await prisma.$disconnect();
+  });

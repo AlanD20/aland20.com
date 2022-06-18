@@ -1,56 +1,65 @@
 import { prisma } from '@/app/prisma';
 
-
 const all = async (query = {}) => {
-
-  return await prisma.project.findMany({
-    ...query
+  return prisma.project.findMany({
+    ...query,
   });
-}
+};
 
 const show = async (id, query = {}) => {
-
-  return await prisma.project.findFirst({
+  return prisma.project.findFirst({
     where: { id },
-    ...query
+    ...query,
   });
-}
+};
 
 const showQuery = async (query) => {
-
-  return await prisma.project.findFirst({
-    ...query
+  return prisma.project.findFirst({
+    ...query,
   });
-}
+};
 
 const store = async ({
-  title, content, sourceLink, previewLink,
-  createdDate, completedDate, priority = 1, tags = []
+  title,
+  content,
+  sourceLink,
+  previewLink,
+  createdDate,
+  completedDate,
+  priority = 1,
+  tags = [],
 }) => {
-
-  return await prisma.project.create({
+  return prisma.project.create({
     data: {
       title,
       content,
       priority,
       sourceLink,
       previewLink,
-      createdDate: createdDate ? (new Date(createdDate)).toISOString() : null,
-      completedDate: completedDate ? (new Date(completedDate)).toISOString() : null,
+      createdDate: createdDate ? new Date(createdDate).toISOString() : null,
+      completedDate: completedDate
+        ? new Date(completedDate).toISOString()
+        : null,
       tags: {
-        connect: tags
-      }
+        connect: tags,
+      },
     },
-    include: { tags: tags.length > 0 ? true : false }
+    include: { tags: tags.length > 0 },
   });
-}
+};
 
 const update = async ({
-  id, title, content, priority, sourceLink,
-  createdDate, completedDate, previewLink, tags = []
+  id,
+  title,
+  content,
+  priority,
+  sourceLink,
+  createdDate,
+  completedDate,
+  previewLink,
+  tags = [],
 }) => {
-
-  return await prisma.project.update({
+  return prisma.project.update({
     where: { id },
     data: {
       title,
@@ -58,28 +67,28 @@ const update = async ({
       priority,
       sourceLink,
       previewLink,
-      createdDate: createdDate ? (new Date(createdDate)).toISOString() : null,
-      completedDate: completedDate ? (new Date(completedDate)).toISOString() : null,
+      createdDate: createdDate ? new Date(createdDate).toISOString() : null,
+      completedDate: completedDate
+        ? new Date(completedDate).toISOString()
+        : null,
       tags: {
-        set: tags
-      }
+        set: tags,
+      },
     },
-    include: { tags: tags.length > 0 ? true : false }
+    include: { tags: tags.length > 0 },
   });
-}
+};
 
 const destroy = async ({ id }) => {
-
   try {
     await prisma.project.deleteMany({
       where: { id },
     });
     return true;
   } catch (error) {
-
     return false;
   }
-}
+};
 
 export const project = {
   all,
@@ -88,4 +97,4 @@ export const project = {
   store,
   update,
   destroy,
-}
+};

@@ -1,16 +1,16 @@
-import getKeyValueFromBracket from "../funcs/getKeyValueFromBracket";
+import getKeyValueFromBracket from '../funcs/getKeyValueFromBracket';
 
-
-export const key: any = '@link'
-
+export const key: any = '@link';
 
 export default function atLink(text: string): string {
-
   let value = text.trim();
 
-  for (let link of text.matchAll(key)) {
-
-    const { textKey, textValue } = getKeyValueFromBracket(text, key, link.index);
+  for (const link of text.matchAll(key)) {
+    const { textKey, textValue } = getKeyValueFromBracket(
+      text,
+      key,
+      link.index
+    );
 
     const wrapped = `<a href="${textKey}" target="_blank" rel="noreferrer" class="link link--inline">${textValue}</a>`;
 

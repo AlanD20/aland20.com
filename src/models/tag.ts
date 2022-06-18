@@ -1,67 +1,56 @@
 import { prisma } from '@/app/prisma';
 
-
 const all = async (query = {}) => {
-
-  return await prisma.tag.findMany({
+  return prisma.tag.findMany({
     orderBy: { name: 'asc' },
-    ...query
+    ...query,
   });
-}
+};
 
 const show = async (id, query = {}) => {
-
-  return await prisma.tag.findFirst({
+  return prisma.tag.findFirst({
     where: { id },
-    ...query
+    ...query,
   });
-}
-
+};
 
 const showQuery = async (query) => {
-
-  return await prisma.tag.findFirst({
-    ...query
+  return prisma.tag.findFirst({
+    ...query,
   });
-}
+};
 
 const store = async ({ name, projects = false, skills = false }) => {
-
-  return await prisma.tag.create({
+  return prisma.tag.create({
     data: {
       name,
-      strict: name.toLowerCase()
+      strict: name.toLowerCase(),
     },
-    include: { projects, skills }
+    include: { projects, skills },
   });
-}
+};
 
-const update = async ({
-  id, name, projects = false, skills = false
-}) => {
-
-  return await prisma.tag.update({
+const update = async ({ id, name, projects = false, skills = false }) => {
+  return prisma.tag.update({
     where: { id },
     data: {
       name,
       strict: name.toLowerCase(),
     },
-    include: { projects, skills }
+    include: { projects, skills },
   });
-}
+};
 
 const destroy = async ({ id }) => {
-
   try {
     await prisma.tag.deleteMany({
       where: { id },
     });
     return true;
   } catch (error) {
-
     return false;
   }
-}
+};
 
 export const tag = {
   all,
@@ -70,4 +59,4 @@ export const tag = {
   store,
   destroy,
   update,
-}
+};

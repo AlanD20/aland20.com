@@ -1,15 +1,9 @@
-import nc from '@/app/nc'
+import nc from '@/app/nc';
 import { sendResponse } from '@/app/validator';
 
-//@ts-ignore
+// @ts-ignore
 export default nc().get(async (req, res) => {
-
-  sendResponse({ response: res }, () => {
-
-    return {
-      message: 'admin dashbaord'
-    }
-
-  });
-
+  sendResponse({ response: res }, () => ({
+    message: 'admin dashbaord',
+  }));
 });

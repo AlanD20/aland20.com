@@ -1,5 +1,5 @@
-import { NextPage } from 'next'
-import { useRouter } from 'next/router'
+import { NextPage } from 'next';
+import { useRouter } from 'next/router';
 
 const NotFound: NextPage = () => {
   const router = useRouter();
@@ -7,14 +7,16 @@ const NotFound: NextPage = () => {
 
   return (
     <div className="page-container">
-      <h1 className="page-container__title">Page not found!</h1>
+      <h2 className="page-container__title">Page not found!</h2>
       <button
+        type="button"
         className="page-container__link"
-        onClick={handleGoBack}>
-        <h2>Click here to go back!</h2>
+        onClick={handleGoBack}
+      >
+        <h3>Click here to go back!</h3>
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFound;

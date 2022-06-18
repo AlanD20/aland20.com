@@ -1,5 +1,4 @@
-import { NextPage } from 'next'
-
+import { NextPage } from 'next';
 
 const FooterText: NextPage = () => {
   return (
@@ -8,7 +7,7 @@ const FooterText: NextPage = () => {
         Copyright Reserved {new Date().getUTCFullYear()} &copy; AlanD20
       </span>
     </div>
-  )
-}
+  );
+};
 
-export default FooterText
+export default FooterText;

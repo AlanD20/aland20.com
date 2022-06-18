@@ -1,9 +1,11 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { NextApiRequest, NextApiResponse } from 'next';
+import { getSession } from 'next-auth/react';
 
-
-export default async function middlewareAuth(req: NextApiRequest, res: NextApiResponse, next) {
-
+export default async function middlewareAuth(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  next
+) {
   const session = await getSession({ req });
 
   if (!session) {
@@ -16,4 +18,4 @@ export default async function middlewareAuth(req: NextApiRequest, res: NextApiRe
   }
 
   next();
-};
+}

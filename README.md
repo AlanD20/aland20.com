@@ -20,12 +20,12 @@ To access the dashboard with the features, you must be authorized. Otherwise, yo
 ### Deployment:
 
 1. Install the packages
-    ```
+    ```bash
     yarn install
     ```
 
 2. You may generate a secret key for `NEXTAUTH_SECRET` environment variable using the following command. But, make sure you have installed `openssl`.
-    ```
+    ```bash
     yarn generate:secret
     ```
 
@@ -35,38 +35,81 @@ To access the dashboard with the features, you must be authorized. Otherwise, yo
     - [.env](.env) -> Environment Variables
 
 4. Generate the database schema with default seeding
-    ```
+    ```bash
     yarn db:reset
     ```
 
 5. Finally, build the project and start pm2 config.
-    ```
+    ```bash
     yarn build && yarn pm2
     ```
 
 - For adding new changes, build the project and restart pm2 by passing our application name which we set in `pm2.json` file.
-    ```
+    ```bash
     yarn build && pm2 restart nextjs-portfolio
     ```
 
 ---
 
-### Development:
+### Development: Setup
 
-- Watch for changes during CSS files using Laravel-mix.
-  ```
-  yarn mix:watch
+1. Install packages
+    ```bash
+    yarn install
+    ```
+2. Define environment variables in .env file with your local environment. You can use .env.sample as a starting point
+3. Create the database
+    ```bash
+    yarn db:reset # Create + Seed
+    yarn db:push # Create only
+    yarn db:seed # Seed only
+    ```
+4. Install husky and give proper permissions
+    ```bash
+    yarn prepare
+    ```
+5. Run the dev server
+    ```bash
+    yarn dev
+    ```
+6. And everything should work :) Don't forget to checkout [src/app](/src/app/) directory to configure the app.
+
+- **Note:** Do not forget to restart the server when you change the contents of .env file.
+
+###### Here are some useful commands:
+
+- Laravel-mix commands.
+  ```bash
+  yarn mix:watch # Watch for changes during css files for development
+  yarn mix:dev # build non-minifying css files for development
+  yarn mix:prod # build minified css files for production
   ```
 - Any changes in Prisma schema, you must push it to the database and generate the `prisma/client` file. The following command does both job at once.
-    ```
+    ```bash
     yarn db:push
     ```
-- Seed the database with base data.
+- Prisma commands.
+    ```bash
+    yarn db:reset # Create + Seed with base data
+    yarn db:push # Create only
+    yarn db:seed # Seed only
+    yarn prisma:studio # Start Prisma studio server
     ```
-    yarn db:seed
+- You may want to manually run prettier format.
+    ```bash
+    yarn format
     ```
+- You may want to generate a secret key for *NEXTAUTH_URL*. You need openssl installed on the machine.
+    ```bash
+    yarn generate:secret
+    ```
+
+---
+### Contribution
+
+If you have anything to add or fix, feel free to open a new pull request.
 
 ---
 ### License
 
-[GNU General Public License v3](LICENSE)
+This repository is under [GNU General Public License v3](LICENSE)

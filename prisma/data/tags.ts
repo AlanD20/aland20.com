@@ -187,6 +187,14 @@ const tags = [
     strict: 'vanilla javascript',
     name: 'Vanilla Javascript',
   },
+  {
+    strict: 'github actions',
+    name: 'GitHub Actions',
+  },
+  {
+    strict: 'cypress',
+    name: 'Cypress',
+  },
 ];
 
 export default tags;

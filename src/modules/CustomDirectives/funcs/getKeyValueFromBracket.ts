@@ -1,13 +1,15 @@
-
-
-export default function getKeyValueFromBracket(text: string, key: string, idx: number | undefined) {
+export default function getKeyValueFromBracket(
+  text: string,
+  key: string,
+  index: number | undefined
+) {
   // @link([/faq][FAQ]) --obj--> {
   //      textKey: '/far',
   //      textValue: 'FAQ'
   //   }
 
-  const SKIP_PARENTHESIS = 2
-  idx = idx ?? text.indexOf(key)
+  const SKIP_PARENTHESIS = 2;
+  const idx = index ?? text.indexOf(key);
   let i = idx + key.length + SKIP_PARENTHESIS;
   let textKey = '';
   let textValue = '';
@@ -17,10 +19,8 @@ export default function getKeyValueFromBracket(text: string, key: string, idx: n
       isValue = true;
       continue;
     }
-    if (text[i] === ']')
-      continue;
-    if (text[i] === ')')
-      break;
+    if (text[i] === ']') continue;
+    if (text[i] === ')') break;
 
     if (!isValue) textKey += text[i];
 

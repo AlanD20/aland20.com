@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import alertReducer from '../features/alertSlice';
 import tagSelectionReducer from '../features/tagSelectionSlice';
 
-
 const store = configureStore({
   reducer: {
     alert: alertReducer,
@@ -19,7 +18,6 @@ const store = configureStore({
       },
     }),
 });
-
 
 export default store;
 

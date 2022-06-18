@@ -3,13 +3,9 @@ import { project } from '@/models/project';
 import { sendResponse } from '@/app/validator';
 import CustomDirective from '@/modules/CustomDirectives/CustomDirective';
 
-
-//@ts-ignore
+// @ts-ignore
 export default nc().get(async (req, res) => {
-
-
   sendResponse({ response: res }, async () => {
-
     let data = await project.all({
       select: {
         title: true,
@@ -19,24 +15,23 @@ export default nc().get(async (req, res) => {
         tags: {
           select: {
             id: true,
-            name: true
-          }
-        }
+            name: true,
+          },
+        },
       },
       orderBy: {
-        priority: 'desc'
-      }
+        priority: 'desc',
+      },
     });
 
-    data = data.map(p => ({
+    data = data.map((p) => ({
       ...p,
-      content: CustomDirective(p.content)
+      content: CustomDirective(p.content),
     }));
 
     return {
       projects: [...data],
-      message: 'Data retrieved'
-    }
-
+      message: 'Data retrieved',
+    };
   });
 });

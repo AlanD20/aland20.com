@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import React from 'react'
+import React from 'react';
 
 type Props = {
   type?: string;
@@ -7,10 +7,14 @@ type Props = {
   name: string;
   defaultValue?: string | number;
   required?: boolean;
-}
+};
 
 const TextField: NextPage<Props> = ({
-  title, name, defaultValue, type = 'text', required = true
+  title,
+  name,
+  defaultValue,
+  type = 'text',
+  required = true,
 }: Props) => {
   return (
     <div className="field">
@@ -23,7 +27,7 @@ const TextField: NextPage<Props> = ({
         defaultValue={defaultValue ?? ''}
       />
     </div>
-  )
-}
+  );
+};
 
-export default TextField
+export default TextField;

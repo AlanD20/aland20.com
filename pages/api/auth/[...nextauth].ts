@@ -1,7 +1,7 @@
-import NextAuth from 'next-auth'
-import GithubProvider from 'next-auth/providers/github'
-import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import { prisma } from '@/app/prisma'
+import NextAuth from 'next-auth';
+import GithubProvider from 'next-auth/providers/github';
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { prisma } from '@/app/prisma';
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -16,18 +16,16 @@ export default NextAuth({
   callbacks: {
     async signIn({ profile }) {
       if (profile.id !== Number(process.env.ALLOWED_GITHUB_PROFILE_ID)) {
-
         return false;
       }
 
-      return true
+      return true;
     },
     async jwt({ token }) {
-      return token
+      return token;
     },
-    //@ts-ignore
-    async session({ session, user, token }) {
-      return session
+    async session({ session }) {
+      return session;
     },
   },
-})
+});

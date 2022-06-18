@@ -37,16 +37,17 @@ export const PRIORITY_VALIDATOR = _.number()
 export const LINK_VALIDATOR = _.string()
   .typeError('Link must be string')
   .required('Link is required')
-  .url().typeError('Link must be a URL');
+  .url()
+  .typeError('Link must be a URL');
 
 export const RELATION_TAGS_VALIDATOR = _.string()
   .typeError('Tag must be array of strings')
   .required('Tag is required')
   .min(0, 'At least 1 tag has to be selected');
 
-export const DATE_VALIDATOR = _.string()
-  .typeError('Date must be a string date format');
-
+export const DATE_VALIDATOR = _.string().typeError(
+  'Date must be a string date format'
+);
 
 export const Schema = {
   contact: _.object().shape({
@@ -54,14 +55,15 @@ export const Schema = {
     email: _.string()
       .typeError('Email is required')
       .required('Email is required')
-      .email().typeError('Invalid email format'),
+      .email()
+      .typeError('Invalid email format'),
     message: _.string()
       .typeError('Message is required')
       .required('Message is required')
       .max(1000, 'Message must not exceed 1000 characters'),
   }),
   tag: _.object().shape({
-    name: NAME_VALIDATOR
+    name: NAME_VALIDATOR,
   }),
   project: _.object().shape({
     title: TITLE_VALIDATOR,
@@ -71,53 +73,41 @@ export const Schema = {
     priority: PRIORITY_VALIDATOR,
     createdDate: DATE_VALIDATOR,
     completedDate: DATE_VALIDATOR,
-    tags: RELATION_TAGS_VALIDATOR
+    tags: RELATION_TAGS_VALIDATOR,
   }),
   faq: _.object().shape({
     title: TITLE_VALIDATOR,
     priority: PRIORITY_VALIDATOR,
-    content: CONTENT_VALIDATOR
-
+    content: CONTENT_VALIDATOR,
   }),
   skill: _.object().shape({
     title: TITLE_VALIDATOR,
     priority: PRIORITY_VALIDATOR,
-    tags: RELATION_TAGS_VALIDATOR
+    tags: RELATION_TAGS_VALIDATOR,
   }),
-
-}
+};
 
 export async function validator(
   { body, response, model }: Validator,
   func: Function
 ) {
-
   sendResponse({ response }, async () => {
-
     if (!Object.keys(Schema).includes(model)) {
-      throw new Error("Schema is not defined!");
+      throw new Error('Schema is not defined!');
     }
 
-    const validated = await Schema[model].camelCase()
-      .validate(body, {
-        strict: true,
-        stripUnknown: true,
-        abortEarly: false,
-      });
+    const validated = await Schema[model].camelCase().validate(body, {
+      strict: true,
+      stripUnknown: true,
+      abortEarly: false,
+    });
 
-    return await func(validated);
-  })
-
+    return func(validated);
+  });
 }
 
-
-export async function sendResponse(
-  { response }: ResponseApi,
-  func: Function
-) {
-
+export async function sendResponse({ response }: ResponseApi, func: Function) {
   try {
-
     const data = await func();
 
     return response.status(200).json({
@@ -126,16 +116,13 @@ export async function sendResponse(
       code: 200,
       ...data,
     });
-
   } catch (err) {
-
-
     return response.status(422).json({
-      message: '' + err,
+      message: `${err}`,
       // @ts-ignore
       errors: err.errors as _.ValidationError,
       status: 'failed',
-      code: 422
+      code: 422,
     });
   }
 }

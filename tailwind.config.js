@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'Roboto', 'Helvetica', 'Arial'],
+      },
       colors: {
         primary: {
           100: '#F3EAFC',
@@ -32,7 +35,7 @@ module.exports = {
           200: '#F5F5F6',
           300: '#f3f3f4',
           400: '#eaeaea',
-        }
+        },
       },
       animation: {
         'open-details': 'open 450ms linear forwards',
@@ -71,7 +74,7 @@ module.exports = {
             // backgroundColor: '#fff'
           },
         },
-        'open': {
+        open: {
           '0%': {
             opacity: 0,
             visibility: 'hidden',
@@ -79,9 +82,9 @@ module.exports = {
           '100%': {
             opacity: 1,
             visibility: 'visible',
-          }
+          },
         },
-        'close': {
+        close: {
           '0%': {
             opacity: 1,
             visibility: 'visible',
@@ -91,8 +94,8 @@ module.exports = {
             visibility: 'hidden',
           },
         },
-      }
-    }
+      },
+    },
   },
   plugins: [],
-}
+};

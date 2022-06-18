@@ -5,9 +5,7 @@ import store from '@/app/store';
 import { SessionProvider } from 'next-auth/react';
 import Layout from '@comp/layout/Layout';
 
-
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-
   return (
     <SessionProvider session={session}>
       <Provider store={store}>
@@ -16,7 +14,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         </Layout>
       </Provider>
     </SessionProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

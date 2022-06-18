@@ -1,4 +1,4 @@
-import { NextPage, NextPageContext } from 'next'
+import { NextPage, NextPageContext } from 'next';
 import { faq } from '@/models/faq';
 import { Faq } from '@prisma/client';
 import BodyHeader from '@comp/dashboard/BodyHeader';
@@ -8,48 +8,35 @@ import PriorityField from '@misc/dashboard/PriorityField';
 import TextareaField from '@misc/dashboard/TextareaField';
 
 type Props = {
-  faq: Faq
-}
+  faq: Faq;
+};
 
 const EditFaq: NextPage<Props> = ({
-  faq: { id, title, priority, content }
+  faq: { id, title, priority, content },
 }: Props) => {
-
   const model = 'FAQ';
 
   return (
     <main className="dashboard-page edit-page">
-      <BodyHeader
-        action="edit"
-        model={model}
-        url="faqs"
-        deleteBtn={id} />
+      <BodyHeader action="edit" model={model} url="faqs" deleteBtn={id} />
 
       <UpdateModelForm model={model} id={id}>
-        <TextField
-          title="Title:"
-          name="title"
-          defaultValue={title} />
+        <TextField title="Title:" name="title" defaultValue={title} />
         <PriorityField defaultValue={priority} />
-        <TextareaField
-          title="Content:"
-          name="content"
-          defaultValue={content} />
+        <TextareaField title="Content:" name="content" defaultValue={content} />
       </UpdateModelForm>
-    </main >
-  )
-}
-
+    </main>
+  );
+};
 
 export async function getServerSideProps(ctx: NextPageContext) {
-
   const id = Number(ctx.query.faq_id);
 
   return {
     props: {
-      faq: await faq.show(id)
-    }
-  }
+      faq: await faq.show(id),
+    },
+  };
 }
 
-export default EditFaq
+export default EditFaq;

@@ -3,15 +3,12 @@
 @tailwind utilities;
 @tailwind variants;
 
-html,
-body {
-  font-family: Montserrat, Roboto, "Open Sans", Helvetica, Arial !important;
-  font-weight: 300;
-}
-
 
 @layer base {
-
+  html,
+  body {
+    @apply !font-sans font-light;
+  }
   ::selection {
     @apply bg-primary-normal text-cWhite-300;
   }
@@ -36,7 +33,6 @@ body {
   .active-route {
     @apply text-primary-normal;
   }
-
 
   .page-container {
     @apply h-full grid place-content-center gap-8;
@@ -97,7 +93,7 @@ body {
     @apply text-lg capitalize font-semibold;
   }
   main.page .title {
-    @apply text-2xl capitalize font-bold;
+    @apply text-2xl capitalize font-bold self-center;
   }
 
   main.dashboard-page {
@@ -144,7 +140,7 @@ body {
   .field textarea:is(:hover, :focus) {
     @apply text-cBlack-400 bg-cWhite-100 ring-1 ring-primary-400 focus:ring-2 focus:ring-primary-500;
   }
-  .field input[type="submit"] {
+  .field input[type='submit'] {
     @apply w-fit px-8 py-2 self-end capitalize text-lg font-bold;
   }
   .field textarea {
@@ -154,7 +150,7 @@ body {
     @apply select-none;
   }
 
-  .single-faq__title h2 {
+  .single-faq__title h3 {
     @apply w-full;
   }
 
@@ -240,13 +236,12 @@ body {
     @apply capitalize text-lg font-bold text-cBlack-300 flex justify-center items-center absolute bottom-1/2 bg-cWhite-300 w-[125px] h-[125px] rounded-full;
   }
   nav .nav-opener:is(:hover, :focus),
-    nav .nav-open .nav-opener {
-      @apply bg-cWhite-300 text-cBlack-400 ring-2 ring-primary-500;
-    }
-    nav .nav-open ul {
-      @apply visible opacity-100 pointer-events-auto bg-cWhite-200 py-4 px-8 rounded-br-2xl rounded-bl-2xl animate-open-navbar;
-    }
-
+  nav .nav-open .nav-opener {
+    @apply bg-cWhite-300 text-cBlack-400 ring-2 ring-primary-500;
+  }
+  nav .nav-open ul {
+    @apply visible opacity-100 pointer-events-auto bg-cWhite-200 py-4 px-8 rounded-br-2xl rounded-bl-2xl animate-open-navbar;
+  }
 
   /**
    Modifiers
@@ -295,7 +290,6 @@ body {
     @apply py-4 px-8 text-2xl;
   }
 
-
   nav .title:focus-visible,
   nav .title *:focus-visible {
     @apply !ring-0;
@@ -306,7 +300,6 @@ body {
 
     @apply lg:visible lg:pointer-events-auto lg:relative lg:flex-row lg:gap-8 lg:ml-auto lg:items-center lg:top-0 lg:p-0 lg:transition-none lg:opacity-100;
   }
-
 
   span.marker.marker--light {
     @apply font-normal text-primary-dark;
@@ -327,7 +320,7 @@ body {
     @apply flex gap-2 items-center;
   }
 
-  .field--text > *:is(input[type="text"], label, p) {
+  .field--text > *:is(input[type='text'], label, p) {
     @apply flex gap-2 w-full;
   }
 
@@ -337,12 +330,11 @@ body {
   }
 
   .arrow {
-    @apply marker:text-cBlack-300 transition-all duration-150 ease-in;
+    @apply rotate-180 marker:text-cBlack-300 transition-all duration-150 ease-in;
   }
   .down {
-    @apply -rotate-90;
+    @apply rotate-90;
   }
-
 
   header .auth-dialog[open] {
     @apply animate-open-dialog;
@@ -350,7 +342,6 @@ body {
   header .auth-dialog .profile {
     @apply flex flex-row items-center font-bold;
   }
-
 
   main.dashboard-page.dashboard-page--sm {
     @apply page--sm;
@@ -416,7 +407,7 @@ body {
   .tag-list__dialog[open] {
     @apply pointer-events-auto visible opacity-100;
   }
-  .tag-list__dialog[open] input[name="search"] {
+  .tag-list__dialog[open] input[name='search'] {
     @apply ring-2 ring-cBlack-100;
   }
 
@@ -439,17 +430,16 @@ body {
   span.link {
     @apply select-auto p-0 font-bold text-primary-light hover:text-primary-dark;
   }
-  main.content-container{
+  main.content-container {
     @apply gap-2 text-center;
   }
-  main.content-container .title{
+  main.content-container .title {
     @apply text-lg;
   }
-  main.content-container .text-block{
+  main.content-container .text-block {
     @apply text-base;
   }
   .alert {
     @apply font-semibold capitalize;
   }
-
 }

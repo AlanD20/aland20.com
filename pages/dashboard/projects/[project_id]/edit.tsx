@@ -1,4 +1,4 @@
-import { NextPage, NextPageContext } from 'next'
+import { NextPage, NextPageContext } from 'next';
 import { Project, Tag } from '@prisma/client';
 import { project } from '@/models/project';
 import BodyHeader from '@comp/dashboard/BodyHeader';
@@ -10,88 +10,86 @@ import TextField from '@misc/dashboard/TextField';
 import TextareaField from '@misc/dashboard/TextareaField';
 
 type ProjectWithTags = Project & {
-  tags: Tag[]
-}
+  tags: Tag[];
+};
 
 type Props = {
-  project: ProjectWithTags,
-  allTags: Tag[]
-}
+  project: ProjectWithTags;
+  allTags: Tag[];
+};
 
 const EditProject: NextPage<Props> = ({
   project: {
-    id, title, content, sourceLink, priority,
-    previewLink, createdDate, completedDate, tags
-  }, allTags
+    id,
+    title,
+    content,
+    sourceLink,
+    priority,
+    previewLink,
+    createdDate,
+    completedDate,
+    tags,
+  },
+  allTags,
 }: Props) => {
-
-  const model = "Project"
+  const model = 'Project';
 
   return (
     <main className="dashboard-page edit-page">
-      <BodyHeader
-        action="edit"
-        model={model}
-        url="projects"
-        deleteBtn={id} />
+      <BodyHeader action="edit" model={model} url="projects" deleteBtn={id} />
 
-      <UpdateModelForm model={model} id={id} >
-        <TextField
-          title="Title:"
-          name="title"
-          defaultValue={title} />
+      <UpdateModelForm model={model} id={id}>
+        <TextField title="Title:" name="title" defaultValue={title} />
         <PriorityField defaultValue={priority} />
-        <TextareaField
-          title="Content:"
-          name="content"
-          defaultValue={content} />
+        <TextareaField title="Content:" name="content" defaultValue={content} />
         <TextField
           title="Source Code Link:"
           name="sourceLink"
-          type='url'
-          defaultValue={sourceLink} />
+          type="url"
+          defaultValue={sourceLink}
+        />
         <TextField
           title="Preview Link:"
           name="previewLink"
-          type='url'
+          type="url"
           defaultValue={previewLink}
-          required={false} />
+          required={false}
+        />
         <TextField
           type="date"
           title="Created Date:"
           name="createdDate"
-          defaultValue={createdDate?.toString()} />
+          defaultValue={createdDate?.toString()}
+        />
         <TextField
           type="date"
           title="Completed Date:"
           name="completedDate"
           defaultValue={completedDate?.toString()}
-          required={false} />
+          required={false}
+        />
 
         <TagListSelection
           tags={allTags}
-          defaultTags={[...tags.map(t => t.id)]}
+          defaultTags={[...tags.map((t) => t.id)]}
         />
       </UpdateModelForm>
-
-    </main >
-  )
-}
-
+    </main>
+  );
+};
 
 export async function getServerSideProps(ctx: NextPageContext) {
-
   const id = Number(ctx.query.project_id);
   return {
     props: {
       project: await project.show(id, {
         include: {
-          tags: true
-        }
+          tags: true,
+        },
       }),
-      allTags: await tag.all()
-    }
-  }
+      allTags: await tag.all(),
+    },
+  };
 }
 
-export default EditProject
+export default EditProject;

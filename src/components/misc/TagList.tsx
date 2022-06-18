@@ -1,17 +1,18 @@
-import { Tag } from '@prisma/client'
-import { NextPage } from 'next'
-import { MouseEventHandler } from 'react'
+import { Tag } from '@prisma/client';
+import { NextPage } from 'next';
+import { MouseEventHandler } from 'react';
 
 type Props = {
-  tags: Tag[],
-  handleClickEvent?: MouseEventHandler<HTMLLIElement>,
-}
+  tags: Tag[];
+  handleClickEvent?: MouseEventHandler<HTMLLIElement>;
+};
 
 const TagList: NextPage<Props> = ({ tags, handleClickEvent }: Props) => {
   return (
     <ul className="tag-list">
-      {tags.map(tag => (
+      {tags.map((tag) => (
         <li
+          role="button"
           onClick={handleClickEvent}
           className="tag-list__item"
           data-id={tag.id}
@@ -23,7 +24,7 @@ const TagList: NextPage<Props> = ({ tags, handleClickEvent }: Props) => {
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};
 
-export default TagList
+export default TagList;

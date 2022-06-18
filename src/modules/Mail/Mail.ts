@@ -1,10 +1,7 @@
-import escapeHTMLChars from "@/helpers/escapeHTMLChars";
-
+import escapeHTMLChars from '@/helpers/escapeHTMLChars';
+import nodemailer from 'nodemailer';
 
 export default async function SendMail(MailType) {
-
-  const nodemailer = require('nodemailer');
-
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT),
@@ -17,11 +14,10 @@ export default async function SendMail(MailType) {
 
   const mail = await transporter.sendMail(MailType);
 
-  return mail.messageId
+  return mail.messageId;
 }
 
 export function ClientMail(data) {
-
   const fullname = escapeHTMLChars(data.fullname);
   const email = escapeHTMLChars(data.email);
   const message = escapeHTMLChars(data.message);
