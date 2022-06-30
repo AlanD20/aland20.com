@@ -33,14 +33,14 @@ const ProjectTile: NextPage<Props> = ({
       <div className="card__date">
         {createdDate && (
           <p>
-            Created Date:
+            Created Date:{' '}
             <span className="italic">{createdDate?.toString()}</span>
           </p>
         )}
 
         {completedDate && (
           <p>
-            Completed Date:
+            Completed Date:{' '}
             <span className="italic">{completedDate?.toString()}</span>
           </p>
         )}

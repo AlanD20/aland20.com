@@ -58,31 +58,24 @@ To access the dashboard with the features, you must be authorized. Otherwise, yo
     yarn install
     ```
 2. Define environment variables in .env file with your local environment. You can use .env.sample as a starting point
-3. Create the database
-    ```bash
-    yarn db:reset # Create + Seed
-    yarn db:push # Create only
-    yarn db:seed # Seed only
-    ```
-4. Install husky and give proper permissions
+3. Run prepare script
     ```bash
     yarn prepare
     ```
-5. Run the dev server
+4. Run the dev server
     ```bash
     yarn dev
     ```
-6. And everything should work :) Don't forget to checkout [src/app](/src/app/) directory to configure the app.
+5. And everything should work :) Don't forget to checkout [src/app](/src/app/) directory to configure the app.
 
-- **Note:** Do not forget to restart the server when you change the contents of .env file.
+- **Note:** Do not forget to restart the server when you make changes in .env file.
 
 ###### Here are some useful commands:
 
-- Laravel-mix commands.
+- postcss commands.
   ```bash
-  yarn mix:watch # Watch for changes during css files for development
-  yarn mix:dev # build non-minifying css files for development
-  yarn mix:prod # build minified css files for production
+  yarn css:dev # Watch for changes during css files for development
+  yarn css:prod # build minified css files for production
   ```
 - Any changes in Prisma schema, you must push it to the database and generate the `prisma/client` file. The following command does both job at once.
     ```bash

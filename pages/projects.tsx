@@ -59,11 +59,6 @@ export async function getServerSideProps() {
       : null,
   }));
 
-  // res.setHeader(
-  //   'Cache-Control',
-  //   'public, s-maxage=2000000, stale-while-revalidate=59'
-  // );
-
   return {
     props: {
       projects,

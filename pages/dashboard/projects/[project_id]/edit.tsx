@@ -8,6 +8,7 @@ import UpdateModelForm from '@comp/dashboard/UpdateModelForm';
 import PriorityField from '@misc/dashboard/PriorityField';
 import TextField from '@misc/dashboard/TextField';
 import TextareaField from '@misc/dashboard/TextareaField';
+import moment from 'moment';
 
 type ProjectWithTags = Project & {
   tags: Tag[];
@@ -34,6 +35,9 @@ const EditProject: NextPage<Props> = ({
 }: Props) => {
   const model = 'Project';
 
+  const completedDateFormated = moment(completedDate).format('YYYY-MM-DD');
+  const createdDateFormated = moment(createdDate).format('YYYY-MM-DD');
+
   return (
     <main className="dashboard-page edit-page">
       <BodyHeader action="edit" model={model} url="projects" deleteBtn={id} />
@@ -59,13 +63,13 @@ const EditProject: NextPage<Props> = ({
           type="date"
           title="Created Date:"
           name="createdDate"
-          defaultValue={createdDate?.toString()}
+          defaultValue={createdDateFormated?.toString()}
         />
         <TextField
           type="date"
           title="Completed Date:"
           name="completedDate"
-          defaultValue={completedDate?.toString()}
+          defaultValue={completedDateFormated?.toString()}
           required={false}
         />
 
