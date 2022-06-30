@@ -3,17 +3,18 @@
 ---
 A dynamic personal website with a dashboard for managing the website's content.
 
-To access the dashboard with the features, you must be authorized. Otherwise, you'll be redirected to the main page. Using Nextjs v12 middlewares
+To access the dashboard with the features, you must be authorized. Otherwise, you'll be redirected to the main page by taking advantage of Nextjs v12 middlewares.
 
 ---
 
 ### Features:
 
-- You can manage **Projects**, **Skills**, **Tags**, **FAQs** such as *Add*, *Edit*, *Delete*.
+- You can manage **Projects**, **Skills**, **Tags**, **FAQs** such as _Add_, _Edit_, _Delete_.
 - Validations and using Node mailer in Contact form.
-- The API routes that manages the website are protected, which you have to be authorized to access them.
-- Each of the contents has `Priority` field which helps you to make a content have a high order to be shown in the website.
-- [Custom Directives](pages/dashboard//directives/index.tsx) that generate HTML tags to make it easier to write page content. Custom Directives code can be found in the [modules](src/modules/CustomDirectives/) folder.
+- The API routes that manages the website are protected. Which means, you have to be authorized to have access to the api routes.
+- Each content has `Priority` field which helps you give a content high ordering, to be rendered in the website.
+- [Custom Directives](src/modules/CustomDirectives/README.md) are custom words that generate HTML tags for contents written with it. This process makes it easier to give styles and write the way you want to be rendered in the website. Custom Directives source code can be found in the [modules](src/modules/CustomDirectives/) folder.
+  - Used in _Project_, _FAQ_ descriptions.
 - You can find your Github ID through this website: [Find Github ID](http://caius.github.io/github_id/)
 ---
 
