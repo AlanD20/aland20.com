@@ -9,7 +9,7 @@ const AlertStatus: NextPage = () => {
   const success = useAppSelector((state) => state.alert.success);
 
   useEffect(() => {
-    const timer = setTimeout(() => void dispatch(clearAlert()), 5000);
+    const timer = setTimeout(() => void dispatch(clearAlert()), 2500);
     return () => void clearTimeout(timer);
   }, [dispatch, error, success]);
 

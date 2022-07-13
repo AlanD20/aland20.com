@@ -12,6 +12,7 @@
     "lint": "next lint",
     "eslint": "eslint pages src",
     "format": "prettier --write pages src",
+    "format:export": "prettier --write prisma/export",
     "css:dev": "postcss ./src/css --dir ./styles --watch",
     "css:prod": "postcss ./src/css --dir ./styles",
     "prisma:studio": "prisma studio",

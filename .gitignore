@@ -30,6 +30,7 @@ yarn-error.log*
 .env*.local
 .env.prod
 prisma/*.sqlite
+prisma/export/
 
 # vercel
 .vercel

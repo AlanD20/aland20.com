@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { ChangeEvent, ReactNode } from 'react';
-import { useAppDispatch, useForm } from '@/app/hooks';
+import { useAppDispatch, useFetchForm } from '@/app/hooks';
 import config from '@config';
 import AlertStatus from '@misc/AlertStatus';
 import { setError, setSuccess } from '@/features/alertSlice';
@@ -18,11 +18,13 @@ const UpdateModelForm: NextPage<Props> = ({
   id,
   options = {},
 }: Props) => {
-  const handleUpdate = useForm({
-    url: config.api.admin.update(`${model.toLowerCase()}s`, id),
-    method: 'PATCH',
-    ...options,
-  });
+  const handleUpdate = useFetchForm(
+    {
+      url: config.api.admin.update(`${model.toLowerCase()}s`, id),
+      method: 'PATCH',
+    },
+    { ...options }
+  );
   const dispatch = useAppDispatch();
 
   const handleOnSubmit = async (e: ChangeEvent<HTMLFormElement>) => {

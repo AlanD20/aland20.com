@@ -40,12 +40,34 @@ const projects = [
       { id: 1 },
       { id: 2 },
       { id: 3 },
+      { id: 19 },
       { id: 4 },
       { id: 10 },
-      { id: 19 },
       { id: 37 },
       { id: 44 },
       { id: 45 },
+    ],
+  },
+  {
+    priority: 4,
+    title: 'Random Link Opener',
+    content:
+      '@pg Simple Chrome Extension to Save links and access them later on. You can set custom shortcuts to open the saved links randomly. @endpg',
+    sourceLink: 'https://github.com/AlanD20/random-link-opener',
+    previewLink:
+      'https://chrome.google.com/webstore/detail/random-link-opener/oflnfiibddofkafdghhmohhbndkphcih',
+    createdDate: '2022-07-03',
+    completedDate: '2022-07-03',
+    tags: [
+      { id: 1 },
+      { id: 2 },
+      { id: 3 },
+      { id: 5 },
+      { id: 11 },
+      { id: 19 },
+      { id: 21 },
+      { id: 18 },
+      { id: 50 },
     ],
   },
   {
@@ -60,6 +82,7 @@ const projects = [
     tags: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 16 }, { id: 46 }, { id: 47 }],
   },
   {
+    priority: 1,
     title: 'Static E-Commerce Shop',
     content:
       '@pg My first project attempting to use basic HTML, CSS, Javascript to clone a static e-commerce website. Allowing users to add and persist items to their shopping card using local storage. Also, a search field  for items on the website. @endpg',
@@ -70,6 +93,7 @@ const projects = [
     tags: [{ id: 1 }, { id: 2 }, { id: 47 }],
   },
   {
+    priority: 1,
     title: 'Password Generator',
     content:
       '@pg Simple password generator that generates 47 long characters. A single character can be lowercase letters, uppercase letters, symbols, and numbers. @endpg',
@@ -80,6 +104,7 @@ const projects = [
     tags: [{ id: 1 }, { id: 2 }, { id: 47 }],
   },
   {
+    priority: 1,
     title: 'Uber & Bolt Fee Calculator',
     content:
       '@pg I did this project to improve my coding for calcualtion which it calculates the income of Uber & Bolt employee service. @block - @link([https://ravapi.pl/en/calculator/][Ravapi]) is the original website that inspired me to do the project as I was lacking experience to do calculations. @endblock @endpg',
@@ -90,6 +115,7 @@ const projects = [
     tags: [{ id: 1 }, { id: 2 }, { id: 47 }],
   },
   {
+    priority: 1,
     title: 'Uber Eats Template Clone',
     content:
       '@pg This project is a clone of the @link([https://www.ubereats.com/pl-en][official Uber Eats]) website. @pg The purpose of this project was to: @block - Improve my experience to Clone/ Re-create a given UI design. @endblock @block - Enhance my skills to create complex designs using only HTML/ CSS. @endblock @endpg @endpg',
@@ -100,6 +126,7 @@ const projects = [
     tags: [{ id: 1 }, { id: 2 }, { id: 47 }],
   },
   {
+    priority: 1,
     title: 'Web Blog',
     content:
       '@pg The purpose of this project was to create a simple web blog using HTML/ CSS/ Vanilla Javascript to pass my course during my study. The website allows registeration and authentication. Registered users are be able to do the following actions: @block - Manage their accounts. @endblock @block - Publish articles about their favorite news and thoughts! @endblock @block - Create/ Delete their own articles. @endblock @endpg',
@@ -110,6 +137,7 @@ const projects = [
     tags: [{ id: 1 }, { id: 2 }, { id: 19 }, { id: 16 }, { id: 47 }],
   },
   {
+    priority: 1,
     title: 'King Killer',
     content:
       '@pg Simple multiplayer free-for-all game. With a lobby of 2-6 players eliminates each other to get to the top of the leaderboard. Please visit the github link to learn more about the game and available features. You may also want to see the @link([https://trello.com/b/B0G2WyyL/king-killer-planner][Trello Board Planner]) during the development time I wrote. @endpg',
@@ -120,6 +148,7 @@ const projects = [
     tags: [{ id: 7 }, { id: 9 }, { id: 15 }],
   },
   {
+    priority: 1,
     title: 'Environment Simulator',
     content:
       '@pg Environment Simulator is a real-world simulation of how pollutions spread with their effects in the environment. It was a task during one of my interviews which you may find my solution and all the feedback that I received for my solution in the github repository. @endpg',
@@ -130,11 +159,11 @@ const projects = [
     tags: [
       { id: 1 },
       { id: 2 },
-      { id: 13 },
       { id: 3 },
       { id: 11 },
       { id: 19 },
       { id: 21 },
+      { id: 13 },
       { id: 30 },
     ],
   },

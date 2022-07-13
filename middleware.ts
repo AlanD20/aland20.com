@@ -13,11 +13,13 @@ export const config = {
 };
 
 export async function middleware(req: NextRequest) {
+
   const sessionToken =
     req.cookies.get('__Secure-next-auth.session-token') ??
     req.cookies.get('next-auth.session-token');
 
-  if (!sessionToken) redirect('/', req.url);
+
+  if (!sessionToken) return redirect('/', req.url);
 
   const userUrl = appConfig.api.sessions.user(sessionToken as string);
   const user: (User & ResponseApi) | null = await (
@@ -31,7 +33,7 @@ export async function middleware(req: NextRequest) {
     })
   ).json();
 
-  if (!user) redirect('/', req.url);
+  if (!user) return redirect('/', req.url);
 
   return NextResponse.next();
 }

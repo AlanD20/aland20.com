@@ -59,15 +59,11 @@ To access the dashboard with the features, you must be authorized. Otherwise, yo
     yarn install
     ```
 2. Define environment variables in .env file with your local environment. You can use .env.sample as a starting point
-3. Run prepare script
-    ```bash
-    yarn prepare
-    ```
-4. Run the dev server
+3. Run the dev server
     ```bash
     yarn dev
     ```
-5. And everything should work :) Don't forget to checkout [src/app](/src/app/) directory to configure the app.
+4. And everything should work :) Don't forget to checkout [src/app](/src/app/) directory to configure the app.
 
 - **Note:** Do not forget to restart the server when you make changes in .env file.
 

@@ -27,7 +27,7 @@ git clone https://github.com/AlanD20/aland20.tech.git "$BASE_PATH/."
 cp -f "$SCRIPT_PATH/.env" "$BASE_PATH/.env"
 
 # Install dependencies
-cd "$BASE_PATH" & yarn && yarn db:reset
+cd "$BASE_PATH" && yarn && yarn db:reset
 
 # Setup Project
 cp -f "$SCRIPT_PATH/config.ts" "$BASE_PATH/src/app/config.ts"

@@ -7,7 +7,7 @@
 @layer base {
   html,
   body {
-    @apply !font-sans font-light;
+    @apply !font-sans font-normal;
   }
   ::selection {
     @apply bg-primary-normal text-cWhite-300;

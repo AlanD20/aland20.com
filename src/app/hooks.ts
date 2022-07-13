@@ -7,24 +7,21 @@ import { AppDispatch, RootState } from './store';
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-interface FetchWithForm {
-  url?: string;
+interface fetch {
+  url: string;
   method?: string;
+  data?: any;
+}
+
+interface FetchWithForm {
   defaults?: object;
   parseOnly?: boolean;
   requestOnly?: boolean;
 }
 
-export const useForm =
-  ({ url, method = 'POST', defaults = {} }: FetchWithForm) =>
-  async (event: ChangeEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const form = event.target;
-    const children = Array.from(form.elements) as HTMLInputElement[];
-    const data = formInputsToObj(children, { defaults });
-
-    form.reset();
+export const useFetch =
+  () =>
+  async ({ url, method = 'GET', data = {} }: fetch) => {
     try {
       const resolved = await axios({ method, url, data });
       console.log({
@@ -38,3 +35,25 @@ export const useForm =
       return error.response.data;
     }
   };
+
+export const useFetchForm = (
+  { url, method = 'POST' }: fetch,
+  { defaults = {}, requestOnly, parseOnly }: FetchWithForm = {}
+) => {
+  const fetchRequest = useFetch();
+
+  return async (event: ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.target;
+    let data = {};
+    if (!requestOnly) {
+      const children = Array.from(form.elements) as HTMLInputElement[];
+      data = formInputsToObj(children, { defaults });
+    }
+
+    form.reset();
+    if (parseOnly) return data;
+    return fetchRequest({ url, method, data });
+  };
+};

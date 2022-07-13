@@ -1,200 +1,53 @@
 const tags = [
-  {
-    strict: 'html',
-    name: 'HTML',
-  },
-  {
-    strict: 'css',
-    name: 'CSS',
-  },
-  {
-    strict: 'javascript es5+',
-    name: 'JavaScript ES5+',
-  },
-  {
-    strict: 'php',
-    name: 'PHP',
-  },
-  {
-    strict: 'node.js',
-    name: 'Node.js',
-  },
-  {
-    strict: 'python',
-    name: 'Python',
-  },
-  {
-    strict: 'c#',
-    name: 'C#',
-  },
-  {
-    strict: 'flutter',
-    name: 'Flutter',
-  },
-  {
-    strict: 'unity engine',
-    name: 'Unity Engine',
-  },
-  {
-    strict: 'laravel',
-    name: 'Laravel',
-  },
-  {
-    strict: 'react',
-    name: 'React',
-  },
-  {
-    strict: 'nextjs',
-    name: 'Nextjs',
-  },
-  {
-    strict: 'meteor',
-    name: 'Meteor',
-  },
-  {
-    strict: 'git',
-    name: 'Git',
-  },
-  {
-    strict: 'github',
-    name: 'Github',
-  },
-  {
-    strict: 'firebase',
-    name: 'Firebase SDK',
-  },
-  {
-    strict: 'linux distros',
-    name: 'Linux Distros',
-  },
-  {
-    strict: 'vite',
-    name: 'vite',
-  },
-  {
-    strict: 'tailwindcss',
-    name: 'TailwindCSS',
-  },
-  {
-    strict: 'sass/scss',
-    name: 'Sass/SCSS',
-  },
-  {
-    strict: 'typescript',
-    name: 'TypeScript',
-  },
-  {
-    strict: 'redux-toolkit',
-    name: 'Redux-Toolkit',
-  },
-  {
-    strict: 'prisma',
-    name: 'Prisma',
-  },
-  {
-    strict: 'apollo',
-    name: 'Apollo',
-  },
-  {
-    strict: 'jquery',
-    name: 'jQuery',
-  },
-  {
-    strict: 'gsap',
-    name: 'GSAP',
-  },
-  {
-    strict: 'webpack',
-    name: 'WebPack',
-  },
-  {
-    strict: 'graphql',
-    name: 'GraphQL',
-  },
-  {
-    strict: 'rest api',
-    name: 'Rest API',
-  },
-  {
-    strict: 'docker',
-    name: 'Docker',
-  },
-  {
-    strict: 'nginx',
-    name: 'Nginx',
-  },
-  {
-    strict: 'kubernetes',
-    name: 'Kubernetes',
-  },
-  {
-    strict: 'cms scripts',
-    name: 'CMS Scripts',
-  },
-  {
-    strict: 'pestphp',
-    name: 'PestPHP',
-  },
-  {
-    strict: 'jira',
-    name: 'Jira',
-  },
-  {
-    strict: 'jest',
-    name: 'Jest',
-  },
-  {
-    strict: 'mysql',
-    name: 'MySQL',
-  },
-  {
-    strict: 'postgresql',
-    name: 'PostgreSQL',
-  },
-  {
-    strict: 'mongodb',
-    name: 'MongoDB',
-  },
-  {
-    strict: 'ssms',
-    name: 'SSMS',
-  },
-  {
-    strict: 'nosql',
-    name: 'NoSQL',
-  },
-  {
-    strict: 'sqlite',
-    name: 'sqlite',
-  },
-  {
-    strict: 'next-auth.js',
-    name: 'next-auth.js',
-  },
-  {
-    strict: 'freelance',
-    name: 'Freelance',
-  },
-  {
-    strict: 'cpanel',
-    name: 'cPanel',
-  },
-  {
-    strict: 'api',
-    name: 'API',
-  },
-  {
-    strict: 'vanilla javascript',
-    name: 'Vanilla Javascript',
-  },
-  {
-    strict: 'github actions',
-    name: 'GitHub Actions',
-  },
-  {
-    strict: 'cypress',
-    name: 'Cypress',
-  },
+  { strict: 'api', name: 'API' },
+  { strict: 'apollo', name: 'Apollo' },
+  { strict: 'c#', name: 'C#' },
+  { strict: 'cms scripts', name: 'CMS Scripts' },
+  { strict: 'css', name: 'CSS' },
+  { strict: 'cypress', name: 'Cypress' },
+  { strict: 'docker', name: 'Docker' },
+  { strict: 'extension', name: 'Extension' },
+  { strict: 'firebase', name: 'Firebase SDK' },
+  { strict: 'flutter', name: 'Flutter' },
+  { strict: 'freelance', name: 'Freelance' },
+  { strict: 'gsap', name: 'GSAP' },
+  { strict: 'git', name: 'Git' },
+  { strict: 'github actions', name: 'GitHub Actions' },
+  { strict: 'github', name: 'Github' },
+  { strict: 'graphql', name: 'GraphQL' },
+  { strict: 'html', name: 'HTML' },
+  { strict: 'javascript es5+', name: 'JavaScript ES5+' },
+  { strict: 'jest', name: 'Jest' },
+  { strict: 'jira', name: 'Jira' },
+  { strict: 'kubernetes', name: 'Kubernetes' },
+  { strict: 'laravel', name: 'Laravel' },
+  { strict: 'linux distros', name: 'Linux Distros' },
+  { strict: 'meteor', name: 'Meteor' },
+  { strict: 'mongodb', name: 'MongoDB' },
+  { strict: 'mysql', name: 'MySQL' },
+  { strict: 'nextjs', name: 'Nextjs' },
+  { strict: 'nginx', name: 'Nginx' },
+  { strict: 'nosql', name: 'NoSQL' },
+  { strict: 'node.js', name: 'Node.js' },
+  { strict: 'php', name: 'PHP' },
+  { strict: 'pestphp', name: 'PestPHP' },
+  { strict: 'postgresql', name: 'PostgreSQL' },
+  { strict: 'prisma', name: 'Prisma' },
+  { strict: 'python', name: 'Python' },
+  { strict: 'react', name: 'React' },
+  { strict: 'redux-toolkit', name: 'Redux-Toolkit' },
+  { strict: 'rest api', name: 'Rest API' },
+  { strict: 'ssms', name: 'SSMS' },
+  { strict: 'sass/scss', name: 'Sass/SCSS' },
+  { strict: 'tailwindcss', name: 'TailwindCSS' },
+  { strict: 'typescript', name: 'TypeScript' },
+  { strict: 'unity engine', name: 'Unity Engine' },
+  { strict: 'vanilla javascript', name: 'Vanilla Javascript' },
+  { strict: 'webpack', name: 'WebPack' },
+  { strict: 'cpanel', name: 'cPanel' },
+  { strict: 'jquery', name: 'jQuery' },
+  { strict: 'next-auth.js', name: 'next-auth.js' },
+  { strict: 'sqlite', name: 'sqlite' },
+  { strict: 'vite', name: 'vite' },
 ];
-
 export default tags;

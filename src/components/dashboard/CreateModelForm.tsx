@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { ChangeEvent, ReactNode } from 'react';
-import { useAppDispatch, useForm } from '@/app/hooks';
+import { useAppDispatch, useFetchForm } from '@/app/hooks';
 import config from '@config';
 import AlertStatus from '@misc/AlertStatus';
 import { setError, setSuccess } from '@/features/alertSlice';
@@ -17,11 +17,13 @@ const CreateModelForm: NextPage<Props> = ({
   options = {},
 }: Props) => {
   const dispatch = useAppDispatch();
-  const handleCreate = useForm({
-    method: 'POST',
-    url: config.api.admin.store(`${model.toLowerCase()}s`),
-    ...options,
-  });
+  const handleCreate = useFetchForm(
+    {
+      url: config.api.admin.store(`${model.toLowerCase()}s`),
+      method: 'POST',
+    },
+    { ...options }
+  );
 
   const handleOnSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     const { code, message, errors } = await handleCreate(e);

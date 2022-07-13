@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
 import config from '@config';
-import { useAppDispatch, useForm } from '@/app/hooks';
+import { useAppDispatch, useFetchForm } from '@/app/hooks';
 import { setError, setSuccess } from '@/features/alertSlice';
 import AlertStatus from '@misc/AlertStatus';
 
@@ -9,7 +9,7 @@ type FormEvent = ChangeEvent<HTMLFormElement>;
 
 const ContactForm: NextPage = () => {
   const dispatch = useAppDispatch();
-  const handleContact = useForm({
+  const handleContact = useFetchForm({
     url: config.api.contact(),
     method: 'POST',
   });
