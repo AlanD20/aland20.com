@@ -13,11 +13,9 @@ export const config = {
 };
 
 export async function middleware(req: NextRequest) {
-
   const sessionToken =
     req.cookies.get('__Secure-next-auth.session-token') ??
     req.cookies.get('next-auth.session-token');
-
 
   if (!sessionToken) return redirect('/', req.url);
 
@@ -38,7 +36,7 @@ export async function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-function redirect(path: string, url) {
+function redirect(path: string, url: string) {
   const redirectUrl = new URL(path, url);
   return NextResponse.redirect(redirectUrl);
 }

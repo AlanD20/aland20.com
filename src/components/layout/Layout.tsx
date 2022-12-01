@@ -113,7 +113,7 @@ function getRouteName(route: string): string {
   if (title.length === 2) {
     return title
       .map((t) => {
-        if (t === 'dashboard') t = 'manage';
+        if (t === 'dashboard') return 'manage';
         return _.capitalize(t);
       })
       .join(' ');

@@ -28,9 +28,7 @@ const Navbar: NextPage<Props> = ({ navWrapperRef, dialogRef }: Props) => {
       <div className="text-4xl font-bold tracking-wide text-cBlack-400 transition-colors duration-150 ease-linear focus-within:text-primary-normal hover:text-cBlack-400/50 focus:text-cBlack-400/50">
         <h1 role="button">
           <Link href="/">
-            <a>
-              Aland <span className="whitespace-nowrap">Al-Jaf</span>
-            </a>
+            <a>AlanD20</a>
           </Link>
         </h1>
       </div>

@@ -12,6 +12,7 @@ export const exportSkills = async () => {
         },
       },
     },
+    orderBy: {},
   });
 
   return exportToFile('skills', skills);

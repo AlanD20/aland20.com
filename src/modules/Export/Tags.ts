@@ -7,6 +7,7 @@ export const exportTags = async () => {
       strict: true,
       name: true,
     },
+    orderBy: {},
   });
 
   return exportToFile('tags', tags);

@@ -25,7 +25,11 @@ const SingleModelCard: NextPage<Props> = ({
     <div className={cls} key={id}>
       <div className="single-model__left">{children}</div>
       <div className="single-model__right">
-        <Link href={`/dashboard/${model.toLowerCase()}s/${id}/edit`} passHref>
+        <Link
+          href={`/dashboard/${model.toLowerCase()}s/${id}/edit`}
+          as={`/dashboard/${model.toLowerCase()}s/${id}/edit`}
+          passHref
+        >
           <a className="btn btn--primary btn--green pen-icon">✎</a>
         </Link>
       </div>

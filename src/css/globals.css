@@ -223,8 +223,13 @@
   }
 
   .tag-list {
-    @apply overflow-y-scroll ml-2 flex gap-2 text-xs items-start flex-wrap pr-4 w-full h-full;
+    @apply  ml-2 flex gap-2 text-xs items-start flex-wrap pr-4 w-full h-full;
   }
+
+  .tag-list__dialog .tag-list {
+    @apply overflow-y-scroll;
+  }
+
   .tag-list .tag-list__item {
     @apply py-1 px-3 rounded-2xl text-cBlack-400 bg-primary-200 selection:bg-cBlack-300 selection:text-cWhite-100 capitalize
     transition-all duration-150 ease-in select-none break-all;

@@ -1,28 +1,27 @@
+import { PrismaClient } from '@prisma/client';
 import projects from './data/projects';
 import faqs from './data/faqs';
 import skills from './data/skills';
 import tags from './data/tags';
 
-import { PrismaClient } from '@prisma/client';
-
 const prisma = new PrismaClient();
 
 async function main() {
-  //tags
+  // tags
   for (let t of tags) {
     await prisma.tag.create({
       data: t,
     });
   }
 
-  //faqs
+  // faqs
   for (let f of faqs) {
     await prisma.faq.create({
       data: f,
     });
   }
 
-  //projects
+  // projects
   for (let p of projects) {
     await prisma.project.create({
       data: {
@@ -44,7 +43,7 @@ async function main() {
     });
   }
 
-  //skills
+  // skills
   for (let s of skills) {
     await prisma.skill.create({
       data: {

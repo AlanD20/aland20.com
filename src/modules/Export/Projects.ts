@@ -18,6 +18,7 @@ export const exportProjects = async () => {
         },
       },
     },
+    orderBy: {},
   });
   projects = projects.map((p) => ({
     ...p,

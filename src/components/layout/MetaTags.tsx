@@ -14,7 +14,7 @@ const MetaTags: NextPage = () => {
       />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="language" content="English" />
-      <meta name="author" content="Aland Al-Jaf" />
+      <meta name="author" content="AlanD20" />
       <meta name="robots" content="index, follow" />
       <meta name="contact" content="aland20@pm.me" />
       <meta name="revisit-after" content="7" />

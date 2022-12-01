@@ -7,6 +7,7 @@ export const exportFaqs = async () => {
       title: true,
       content: true,
     },
+    orderBy: {},
   });
 
   return exportToFile('faqs', faqs);
