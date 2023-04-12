@@ -1,6 +1,6 @@
-import { useAppDispatch, useFetch } from '@/app/hooks';
+import { useAppDispatch, useFetch } from '@/config/hooks';
 import { setError, setSuccess } from '@/features/alertSlice';
-import config from '@config';
+import config from '@/config/app';
 import AlertStatus from '@misc/AlertStatus';
 import { NextPage } from 'next';
 import Link from 'next/link';
@@ -29,38 +29,28 @@ const Dashboard: NextPage = () => {
       <h2 className="title">Website Dashboard</h2>
       <AlertStatus />
       <div className="dashbaord">
-        <Link href="/dashboard/tags">
-          <button type="button" className="btn btn--outline btn--wide">
-            Manage Tags
-          </button>
+        <Link className="btn btn--outline btn--wide" href="/dashboard/tags">
+          Manage Tags
         </Link>
 
-        <Link href="/dashboard/faqs">
-          <button type="button" className="btn btn--outline btn--wide">
-            Manage FAQs
-          </button>
+        <Link className="btn btn--outline btn--wide" href="/dashboard/faqs">
+          Manage FAQs
         </Link>
 
-        <Link href="/dashboard/skills">
-          <button type="button" className="btn btn--outline btn--wide">
-            Manage Skills
-          </button>
+        <Link className="btn btn--outline btn--wide" href="/dashboard/skills">
+          Manage Skills
         </Link>
 
-        <Link href="/dashboard/projects">
-          <button type="button" className="btn btn--outline btn--wide">
-            Manage Projects
-          </button>
+        <Link className="btn btn--outline btn--wide" href="/dashboard/projects">
+          Manage Projects
         </Link>
 
-        <Link href="/dashboard/directives">
-          <button type="button" className="btn btn--secondary">
-            Custom Directives
-          </button>
+        <Link className="btn btn--secondary" href="/dashboard/directives">
+          Custom Directives
         </Link>
 
         <form method="post" onSubmit={handleExports}>
-          <button type="submit" className="btn btn--secondary w-full">
+          <button type="submit" className="w-full btn btn--secondary">
             Export Database
           </button>
         </form>

@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import SocialLinks from '@misc/SocialLinks';
-import { useAppDispatch } from '@/app/hooks';
+import { useAppDispatch } from '@/config/hooks';
 import { closeTagSelection } from '@/features/tagSelectionSlice';
 import _ from 'lodash';
 import { ReactNode, useRef } from 'react';

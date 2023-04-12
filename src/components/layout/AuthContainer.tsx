@@ -37,8 +37,8 @@ const AuthContainer: NextPage<Props> = ({ dialogRef }: Props) => {
   }
 
   return (
-    <div className="login-container relative lg:ml-4">
-      <div className="login-container__header flex gap-2">
+    <div className="relative login-container lg:ml-4">
+      <div className="flex gap-2 login-container__header">
         <button
           type="button"
           className="btn btn--primary"
@@ -51,10 +51,10 @@ const AuthContainer: NextPage<Props> = ({ dialogRef }: Props) => {
       <div className="login-container__content absolute -left-12 -bottom-4 md:-bottom-2 md:right-0 w-[200px]">
         <dialog
           ref={dialogRef}
-          className="auth-dialog w-full bg-cWhite-400 rounded-md rounded-bl-lg rounded-br-lg"
+          className="w-full rounded-md rounded-bl-lg rounded-br-lg auth-dialog bg-cWhite-400"
         >
           <form method="dialog" className="flex flex-col gap-2">
-            <div className="field profile pb-2 border-2 border-b-cBlack-200">
+            <div className="pb-2 border-2 field profile border-b-cBlack-200">
               <div className="profile">
                 {data.user?.image && (
                   <Image
@@ -79,8 +79,12 @@ const AuthContainer: NextPage<Props> = ({ dialogRef }: Props) => {
             </div>
 
             <div className="field">
-              <Link href="/dashboard" passHref>
-                <a className="btn btn--outline btn--sm">Dashboard</a>
+              <Link
+                className="btn btn--outline btn--sm"
+                href="/dashboard"
+                passHref
+              >
+                Dashboard
               </Link>
             </div>
 

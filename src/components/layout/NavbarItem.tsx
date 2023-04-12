@@ -13,8 +13,8 @@ const NavbarItem: NextPage<Props> = ({ path, name, className = '' }: Props) => {
   const classes = `link w-full text-center px-2 py-1 flex w-full lg:p-0 ${route}${className}`;
   return (
     <li>
-      <Link href={path} passHref>
-        <a className={classes}>{name}</a>
+      <Link className={classes} href={path} passHref>
+        {name}
       </Link>
     </li>
   );

@@ -44,8 +44,11 @@ const BodyHeader: NextPage<Props> = ({
       {children}
 
       {createBtn && (
-        <Link href={`/dashboard/${model.toLowerCase()}s/create`}>
-          <a className="btn btn--primary">Add {model}</a>
+        <Link
+          className="btn btn--primary"
+          href={`/dashboard/${model.toLowerCase()}s/create`}
+        >
+          Add {model}
         </Link>
       )}
 

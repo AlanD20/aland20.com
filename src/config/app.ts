@@ -1,6 +1,9 @@
 const config = {
-  host: `http://localhost:3000`,
-  allowedOrigins: ['localhost:3000', 'http://localhost:3000'],
+  static: true,
+  host: `https://www.aland20.com`,
+  allowedOrigins: ['https://www.aland20.com', 'https://aland20.com'],
+  // host: `http://localhost:3000`,
+  // allowedOrigins: ['localhost:3000', 'http://localhost:3000'],
   api: {
     contact: () => `${config.host}/api/contact`,
     sessions: {

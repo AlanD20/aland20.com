@@ -1,6 +1,6 @@
-import nc from '@/app/nc';
+import nc from '@/config/nc';
 import { project } from '@/models/project';
-import { validator, sendResponse } from '@/app/validator';
+import { validator, sendResponse } from '@/config/validator';
 
 import parseArrayId from '@/helpers/parseArrayToId';
 

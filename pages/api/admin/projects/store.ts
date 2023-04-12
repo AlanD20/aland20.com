@@ -1,6 +1,6 @@
-import nc from '@/app/nc';
+import nc from '@/config/nc';
 import { project } from '@/models/project';
-import { validator } from '@/app/validator';
+import { validator } from '@/config/validator';
 import parseArrayId from '@/helpers/parseArrayToId';
 
 export default nc().post(async (req, res) =>

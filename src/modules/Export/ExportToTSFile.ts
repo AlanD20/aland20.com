@@ -24,5 +24,5 @@ export const createExportDir = async () => {
   const exists = fs.existsSync(exportDir);
   if (exists) return;
 
-  fs.mkdir(exportDir, (err) => void console.log(err ?? 'Directory Created!'));
+  fs.mkdir(exportDir, (err) => void console.info(err ?? 'Directory Created!'));
 };

@@ -1,6 +1,15 @@
-import { prisma } from '@/app/prisma';
+import config from '@config';
+import { prisma } from '@/config/prisma';
+import { getStaticData } from '@/helpers/getStaticData';
 
 const all = async (query = {}) => {
+  if (config.static) {
+    return getStaticData({
+      model: 'tags',
+      query,
+    });
+  }
+
   return prisma.tag.findMany({
     orderBy: { name: 'asc' },
     ...query,

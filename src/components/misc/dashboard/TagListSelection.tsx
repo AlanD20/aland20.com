@@ -3,7 +3,7 @@ import { Tag } from '@prisma/client';
 import { useState } from 'react';
 import TagList from '@misc/TagList';
 import { toggleTagSelection } from '@/features/tagSelectionSlice';
-import { useAppDispatch } from '@/app/hooks';
+import { useAppDispatch } from '@/config/hooks';
 
 type TagWithSelected = Tag & {
   isSelected: boolean;

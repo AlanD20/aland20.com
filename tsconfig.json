@@ -28,10 +28,11 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@config": ["src/app/config.ts"],
+      "@config": ["src/config/app.ts"],
       "@misc/*": ["src/components/misc/*"],
       "@comp/*": ["src/components/*"],
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@/seed/*": ["prisma/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/**/*"],

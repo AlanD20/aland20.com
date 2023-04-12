@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import config from '@config';
-import { useAppDispatch, useFetchForm } from '@/app/hooks';
+import config from '@/config/app';
+import { useAppDispatch, useFetchForm } from '@/config/hooks';
 import { setError, setSuccess } from '@/features/alertSlice';
 import AlertStatus from '@misc/AlertStatus';
 

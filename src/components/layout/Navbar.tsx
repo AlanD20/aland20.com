@@ -1,4 +1,4 @@
-import { useAppDispatch } from '@/app/hooks';
+import { useAppDispatch } from '@/config/hooks';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { RefObject, useEffect } from 'react';
@@ -24,21 +24,19 @@ const Navbar: NextPage<Props> = ({ navWrapperRef, dialogRef }: Props) => {
   }, [dispatch, isLargeScreen, navWrapperRef]);
 
   return (
-    <nav className="py-4 px-8 flex gap-8 relative items-center">
-      <div className="text-4xl font-bold tracking-wide text-cBlack-400 transition-colors duration-150 ease-linear focus-within:text-primary-normal hover:text-cBlack-400/50 focus:text-cBlack-400/50">
+    <nav className="relative flex items-center gap-8 px-8 py-4">
+      <div className="text-4xl font-bold tracking-wide transition-colors duration-150 ease-linear text-cBlack-400 focus-within:text-primary-normal hover:text-cBlack-400/50 focus:text-cBlack-400/50">
         <h1 role="button">
-          <Link href="/">
-            <a>AlanD20</a>
-          </Link>
+          <Link href="/">AlanD20</Link>
         </h1>
       </div>
       <div
-        className="z-50 ml-auto flex flex-col items-center justify-end gap-8"
+        className="z-50 flex flex-col items-center justify-end gap-8 ml-auto"
         ref={navWrapperRef}
       >
         <button
           type="button"
-          className="nav-opener text-cWhite-100 bg-primary-800 px-4 py-2 rounded-lg transition-all duration-150 ease-linear font-bold text-2xl self-center ml-auto lg:hidden"
+          className="self-center px-4 py-2 ml-auto text-2xl font-bold transition-all duration-150 ease-linear rounded-lg nav-opener text-cWhite-100 bg-primary-800 lg:hidden"
           onClick={handleNavOpener}
         >
           ☰

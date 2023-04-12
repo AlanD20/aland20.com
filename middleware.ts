@@ -1,4 +1,4 @@
-import appConfig from '@config';
+import appConfig from '@/config/app';
 import { User } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -9,7 +9,7 @@ interface ResponseApi {
 }
 
 export const config = {
-  matcher: ['/dashboard', '/dashboard/:path'],
+  matcher: ['/dashboard', '/dashboard/:path*'],
 };
 
 export async function middleware(req: NextRequest) {
@@ -19,7 +19,7 @@ export async function middleware(req: NextRequest) {
 
   if (!sessionToken) return redirect('/', req.url);
 
-  const userUrl = appConfig.api.sessions.user(sessionToken as string);
+  const userUrl = appConfig.api.sessions.user(sessionToken.value);
   const user: (User & ResponseApi) | null = await (
     await fetch(userUrl, {
       method: 'POST',

@@ -1,5 +1,5 @@
 import formInputsToObj from '@/helpers/formInputsToObj';
-import axios from '@/app/axios';
+import axios from '@/config/axios';
 import type { ChangeEvent } from 'react';
 import { TypedUseSelectorHook, useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from './store';
@@ -24,7 +24,7 @@ export const useFetch =
   async ({ url, method = 'GET', data = {} }: fetch) => {
     try {
       const resolved = await axios({ method, url, data });
-      console.log({
+      console.info({
         response: resolved.data,
         message:
           "No, I didn't forget to remove this console log. This log gives more information about the response.",

@@ -1,6 +1,6 @@
-import nc from '@/app/nc';
+import nc from '@/config/nc';
 import { faq } from '@/models/faq';
-import { validator, sendResponse } from '@/app/validator';
+import { validator, sendResponse } from '@/config/validator';
 
 export default nc()
   .get(async (req, res) => {

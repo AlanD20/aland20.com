@@ -1,4 +1,4 @@
-import config from '@config';
+import config from '@/config/app';
 import { NextApiRequest, NextApiResponse } from 'next/types';
 
 export default function middlewareCors(

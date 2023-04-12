@@ -9,7 +9,7 @@ const nextConfig = {
     disableStaticImages: true,
     domains: ['avatars.githubusercontent.com'],
   },
-  async Headers() {
+  async headers() {
     return [
       {
         source: '/api/:path*',
@@ -33,14 +33,21 @@ const nextConfig = {
         ],
       },
       {
-        // HSTS Enabled
-        key: 'Strict-Transport-Security',
-        value: 'max-age=63072000; includeSubDomains; preload',
-      },
-      {
-        // Allow iframe only in same-origin
-        key: 'X-Frame-Options',
-        value: 'SAMEORIGIN',
+        // Apply these headers to all routes in your application.
+        source: '/:path*',
+        headers: [
+          // HSTS Enabled
+          // Automatically enabled on vercel
+          // {
+          //   key: 'Strict-Transport-Security',
+          //   value: 'max-age=63072000; includeSubDomains; preload',
+          // },
+          {
+            // Allow iframe only in same-origin
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+        ],
       },
     ];
   },

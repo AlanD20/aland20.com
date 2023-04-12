@@ -1,5 +1,5 @@
-import nc from '@/app/nc';
-import { sendResponse } from '@/app/validator';
+import nc from '@/config/nc';
+import { sendResponse } from '@/config/validator';
 import { createExportDir } from '@/modules/Export/ExportToTSFile';
 import { exportFaqs } from '@/modules/Export/Faqs';
 import { exportProjects } from '@/modules/Export/Projects';

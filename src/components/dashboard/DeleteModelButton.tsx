@@ -1,8 +1,8 @@
-import { useAppDispatch } from '@/app//hooks';
+import { useAppDispatch } from '@/config/hooks';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import config from '@config';
-import axios from '@/app/axios';
+import config from '@/config/app';
+import axios from '@/config/axios';
 import { setError, setSuccess } from '@/features/alertSlice';
 
 type Props = {

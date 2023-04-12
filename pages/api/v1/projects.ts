@@ -1,6 +1,6 @@
-import nc from '@/app/nc';
+import nc from '@/config/nc';
 import { project } from '@/models/project';
-import { sendResponse } from '@/app/validator';
+import { sendResponse } from '@/config/validator';
 import CustomDirective from '@/modules/CustomDirectives/CustomDirective';
 
 // @ts-ignore

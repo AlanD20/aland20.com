@@ -58,5 +58,6 @@ const tags = [
   { strict: 'vite', name: 'vite' },
   { strict: 'java', name: 'Java' },
   { strict: 'deno', name: 'Deno' },
+  { strict: 'go', name: 'Go' },
 ];
 export default tags;

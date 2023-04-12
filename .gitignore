@@ -43,3 +43,6 @@ prisma/export/
 
 #ignore compiled css
 /styles/**
+
+*.lock
+*-lock*

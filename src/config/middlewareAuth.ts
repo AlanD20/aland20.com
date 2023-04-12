@@ -1,12 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth';
+import { authOptions } from 'pages/api/auth/[...nextauth]';
 
 export default async function middlewareAuth(
   req: NextApiRequest,
   res: NextApiResponse,
   next
 ) {
-  const session = await getSession({ req });
+  const session = await getServerSession(req, res, authOptions);
 
   if (!session) {
     // Make sure to return, otherwise, it continue the process.

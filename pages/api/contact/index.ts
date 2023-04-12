@@ -1,6 +1,6 @@
-import axios from '@/app/axios';
-import nc from '@/app/nc';
-import { validator } from '@/app/validator';
+import axios from '@/config/axios';
+import nc from '@/config/nc';
+import { validator } from '@/config/validator';
 import SendMail, { ClientMail } from '@/modules/Mail/Mail';
 
 export default nc().post(async (req, res) =>

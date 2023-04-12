@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { User } from '@prisma/client';
-import { prisma } from '@/app/prisma';
-import nc from '@/app/nc';
+import { prisma } from '@/config/prisma';
+import nc from '@/config/nc';
 
 export default nc().post(async (req, res) => {
   const { session_token: sessionToken } = req.query;

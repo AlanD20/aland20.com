@@ -49,15 +49,23 @@ const ProjectTile: NextPage<Props> = ({
     <HTMLToReactNode content={content} />
 
     <div className="card__footer">
-      <Link href={sourceLink} passHref>
-        <a className="btn btn--secondary" target="_blank" rel="noreferrer">
-          Source Code
-        </a>
+      <Link
+        className="btn btn--secondary"
+        href={sourceLink}
+        target="_blank"
+        rel="noreferrer"
+        passHref
+      >
+        Source Code
       </Link>
-      <Link href={previewLink} passHref>
-        <a className="btn btn--primary" target="_blank" rel="noreferrer">
-          Live demo
-        </a>
+      <Link
+        className="btn btn--primary"
+        href={previewLink}
+        target="_blank"
+        rel="noreferrer"
+        passHref
+      >
+        Live demo
       </Link>
     </div>
   </div>

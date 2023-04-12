@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { useEffect } from 'react';
 import { clearAlert } from '@/features/alertSlice';
-import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { useAppDispatch, useAppSelector } from '@/config/hooks';
 
 const AlertStatus: NextPage = () => {
   const dispatch = useAppDispatch();
