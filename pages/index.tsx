@@ -17,27 +17,30 @@ const HomePage: NextPage<Props> = ({ skills }: Props) => (
     <h2 className="title">Welcome to my portfolio!</h2>
 
     <p>
-      Hey! I&apos;m Aland, a self-taught full-stack developer. Currently,
-      I&apos;m pursuing my computer science bachelor degree. I&apos;m very
-      passionate, ambitious, enthusiastic about the tech industry and love to
-      try new technologies.
+      Hey! I&apos;m Aland, working as a software engineer. I obtained my
+      bachelor of computer engineering degree in Warsaw, Poland in 2023. This is
+      my personal website where I will showcase my projects and other stuffs
+      that I work on.
     </p>
     <p>
-      Here is a list of all technologies I have tried. The list will be updated
-      when I use any new technologies in my projects or any project I work on.
+      Here is a list of technologies I have tried. The list will be updated when
+      I use any new technologies in my projects or any project I work on.
+      Although, it may not be up to date with everything I use, but I try my
+      best to keep them up to date so that in the future, each tech will be
+      linked to its own projects.
     </p>
     <p>
-      - Experienced in database relations.
+      - Experienced in application and web development.
       <span className="block">
-        - Understanding the fundamental of data structure & Algorithms
+        - Understanding the fundamental of data structure & Algorithms.
       </span>
       <span className="block">
-        - Knowledge of Security, Protection, Networking.
+        - Knowledge of Security, Protection, Networking, Database.
       </span>
     </p>
 
     {skills.length > 0 ? (
-      <div className="list w-full grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-4">
+      <div className="grid w-full grid-cols-1 list sm:grid-cols-2 gap-y-8 gap-x-4">
         {skills.map((s) => (
           <SkillList {...s} key={s.id} />
         ))}

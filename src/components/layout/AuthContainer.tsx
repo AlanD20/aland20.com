@@ -10,7 +10,7 @@ type Props = {
 
 const AuthContainer: NextPage<Props> = ({ dialogRef }: Props) => {
   const [hasRendered, setHasRendered] = useState<Boolean>(false);
-  const { data } = useSession();
+  const { data: session } = useSession();
 
   const handleDialog = () => {
     dialogRef.current?.toggleAttribute('open');
@@ -19,7 +19,7 @@ const AuthContainer: NextPage<Props> = ({ dialogRef }: Props) => {
   // Work around to stop AuthContainer flickering
   useEffect(() => void setHasRendered(true), []);
 
-  if (!data || !hasRendered) {
+  if (!session || !hasRendered) {
     return (
       <div>
         <button
@@ -44,7 +44,7 @@ const AuthContainer: NextPage<Props> = ({ dialogRef }: Props) => {
           className="btn btn--primary"
           onClick={handleDialog}
         >
-          {data.user?.name ?? 'logged in'}
+          {session.user?.name ?? 'logged in'}
         </button>
       </div>
 
@@ -56,9 +56,9 @@ const AuthContainer: NextPage<Props> = ({ dialogRef }: Props) => {
           <form method="dialog" className="flex flex-col gap-2">
             <div className="pb-2 border-2 field profile border-b-cBlack-200">
               <div className="profile">
-                {data.user?.image && (
+                {session.user?.image && (
                   <Image
-                    src={data.user?.image}
+                    src={session.user?.image}
                     unoptimized
                     className="!w-[48px] !h-[48px] rounded-full"
                     width="48"
@@ -69,12 +69,12 @@ const AuthContainer: NextPage<Props> = ({ dialogRef }: Props) => {
               </div>
 
               <a
-                href={`https://github.com/${data.user?.name}`}
+                href={`https://github.com/${session.user?.name}`}
                 className="link"
                 target="_blank"
                 rel="noreferrer"
               >
-                {data.user?.name}
+                {session.user?.name}
               </a>
             </div>
 

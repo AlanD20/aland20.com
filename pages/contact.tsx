@@ -7,18 +7,16 @@ const ContactPage: NextPage = () => (
     <h2 className="title">Contact Form</h2>
 
     <p>
-      If you need my help, I would be glad to help. Although, you may first look
-      at{' '}
+      Feel free to contact me if you need my help. You may first take a look at
       <Link href="/faq" passHref>
         <span className="link link--inline">FAQ</span>
       </Link>{' '}
-      section to see if your questions are listed there. Otherwise, you are
-      welcome to ask. Again, I would like to emphasize that everything is not a
-      right question. So, please keep it simple &amp; worth talking.
+      page, you might find your answers there. Otherwise, you are welcome to ask
+      anything.
     </p>
     <p>
-      You can send me an email directly to{' '}
-      <span className="marker">aland20@pm.me</span>. Or, you can submit the
+      You can send me an email to
+      <span className="marker"> aland20@pm.me</span>. Or, you can submit the
       following form to send me an email.
     </p>
 

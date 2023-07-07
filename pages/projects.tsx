@@ -20,7 +20,7 @@ const ProjectsPage: NextPage<Props> = ({ projects }: Props) => (
 
     <p>
       Here are most of my projects I have done, or worked on. The list will be
-      updated each time I do a new project.
+      updated each time I make a new project.
     </p>
     <p>
       I will only try to share those projects that I&apos;m proud of. Although,

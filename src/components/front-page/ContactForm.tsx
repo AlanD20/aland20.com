@@ -41,7 +41,7 @@ const ContactForm: NextPage = () => {
         <AlertStatus />
 
         <dialog id="dialog">
-          <div className="absolute border-4 border-primary-600 border-dashed animate-spin rounded-full w-full h-full" />
+          <div className="absolute w-full h-full border-4 border-dashed rounded-full border-primary-600 animate-spin" />
 
           <div>loading...</div>
         </dialog>

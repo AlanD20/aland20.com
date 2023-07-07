@@ -11,8 +11,12 @@ export default nc().post(async (req, res) =>
       model: 'contact',
     },
     async (data) => {
+      if (process.env.NEXT_PUBLIC_FORM_ENABLED !== 'true') {
+        throw new Error(
+          'Form submission is disabled. Please send a direct email.'
+        );
+      }
       await validateEmail(data.email);
-
       await SendMail(ClientMail(data));
 
       return {

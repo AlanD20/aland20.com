@@ -17,6 +17,7 @@ model Tag {
 
   projects Project[]
   skills   Skill[]
+
   @@map("tags")
 }
 
@@ -31,6 +32,7 @@ model Project {
   completedDate String? @map("completed_date")
 
   tags Tag[]
+
   @@map("projects")
 }
 
@@ -66,21 +68,18 @@ model User {
 }
 
 model Account {
-  id                       String  @id @default(cuid())
-  userId                   String  @map("user_id")
-  type                     String
-  provider                 String
-  providerAccountId        String  @map("provider_account_id")
-  refresh_token            String?
-  access_token             String?
-  expires_at               Int?
-  token_type               String?
-  scope                    String?
-  id_token                 String?
-  session_state            String?
-  refresh_token_expires_in String?
-  oauth_token_secret       String?
-  oauth_token              String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -99,10 +98,9 @@ model Session {
 }
 
 model VerificationToken {
-  identifier String
+  identifier String   @unique
   token      String   @unique
   expires    DateTime
 
-  @@unique([identifier, token])
   @@map("verification_tokens")
 }

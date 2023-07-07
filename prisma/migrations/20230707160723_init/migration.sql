@@ -1,22 +1,8 @@
 -- CreateTable
-CREATE TABLE "pages" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "title" TEXT NOT NULL,
-    "name" TEXT NOT NULL
-);
-
--- CreateTable
-CREATE TABLE "page_bodys" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "page_id" INTEGER NOT NULL,
-    "content" TEXT NOT NULL,
-    CONSTRAINT "page_bodys_page_id_fkey" FOREIGN KEY ("page_id") REFERENCES "pages" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
-);
-
--- CreateTable
 CREATE TABLE "tags" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "name" TEXT NOT NULL
+    "name" TEXT NOT NULL,
+    "strict" TEXT NOT NULL
 );
 
 -- CreateTable
@@ -24,28 +10,26 @@ CREATE TABLE "projects" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "title" TEXT NOT NULL,
     "content" TEXT NOT NULL,
-    "src_code_link" TEXT NOT NULL,
-    "preview_link" TEXT NOT NULL
+    "priority" INTEGER NOT NULL DEFAULT 1,
+    "source_link" TEXT NOT NULL,
+    "preview_link" TEXT NOT NULL,
+    "created_date" TEXT,
+    "completed_date" TEXT
 );
 
 -- CreateTable
 CREATE TABLE "faqs" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "title" TEXT NOT NULL,
+    "priority" INTEGER NOT NULL DEFAULT 1,
     "content" TEXT NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "skills" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "title" TEXT NOT NULL
-);
-
--- CreateTable
-CREATE TABLE "socials" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "name" TEXT NOT NULL,
-    "link" TEXT NOT NULL
+    "title" TEXT NOT NULL,
+    "priority" INTEGER NOT NULL DEFAULT 1
 );
 
 -- CreateTable
@@ -60,7 +44,7 @@ CREATE TABLE "users" (
 -- CreateTable
 CREATE TABLE "accounts" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "user_id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
     "type" TEXT NOT NULL,
     "provider" TEXT NOT NULL,
     "provider_account_id" TEXT NOT NULL,
@@ -71,10 +55,7 @@ CREATE TABLE "accounts" (
     "scope" TEXT,
     "id_token" TEXT,
     "session_state" TEXT,
-    "refresh_token_expires_in" TEXT,
-    "oauth_token_secret" TEXT,
-    "oauth_token" TEXT,
-    CONSTRAINT "accounts_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT "accounts_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -110,13 +91,10 @@ CREATE TABLE "_SkillToTag" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "tags_name_key" ON "tags"("name");
+CREATE UNIQUE INDEX "tags_strict_key" ON "tags"("strict");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "skills_title_key" ON "skills"("title");
-
--- CreateIndex
-CREATE UNIQUE INDEX "socials_name_key" ON "socials"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
@@ -128,10 +106,10 @@ CREATE UNIQUE INDEX "accounts_provider_provider_account_id_key" ON "accounts"("p
 CREATE UNIQUE INDEX "sessions_session_token_key" ON "sessions"("session_token");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "verification_tokens_token_key" ON "verification_tokens"("token");
+CREATE UNIQUE INDEX "verification_tokens_identifier_key" ON "verification_tokens"("identifier");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "verification_tokens_identifier_token_key" ON "verification_tokens"("identifier", "token");
+CREATE UNIQUE INDEX "verification_tokens_token_key" ON "verification_tokens"("token");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_ProjectToTag_AB_unique" ON "_ProjectToTag"("A", "B");

@@ -44,14 +44,14 @@ const Layout: NextPage<Props> = ({ children }: Props) => {
         <MetaTags />
       </Head>
 
-      <header className="border-b-2 border-cWhite-400 select-none mb-8">
+      <header className="mb-8 border-b-2 select-none border-cWhite-400">
         <Navbar navWrapperRef={navWrapperRef} dialogRef={dialogRef} />
       </header>
 
       {/* Render Current Pages */}
       {children}
 
-      <footer className="mt-8 px-8 py-4 flex-col gap-4 flex justify-center items-center border-t-2 border-cWhite-400 flex-1">
+      <footer className="flex flex-col items-center justify-center flex-1 gap-4 px-8 py-4 mt-8 border-t-2 border-cWhite-400">
         <FooterText />
         <SocialLinks />
       </footer>

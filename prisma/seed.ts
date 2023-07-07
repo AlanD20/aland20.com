@@ -6,24 +6,23 @@ import tags from './data/tags';
 
 const prisma = new PrismaClient();
 
+async function processAsync(array: any[], action: Function) {
+  for (const data of array) {
+    await action(data);
+  }
+}
+
 async function main() {
   // tags
-  for (let t of tags) {
-    await prisma.tag.create({
-      data: t,
-    });
-  }
+
+  await processAsync(tags, (t) => prisma.tag.create({ data: t }));
 
   // faqs
-  for (let f of faqs) {
-    await prisma.faq.create({
-      data: f,
-    });
-  }
+  await processAsync(faqs, (f) => prisma.faq.create({ data: f }));
 
   // projects
-  for (let p of projects) {
-    await prisma.project.create({
+  await processAsync(projects, (p) =>
+    prisma.project.create({
       data: {
         title: p.title,
         priority: p.priority,
@@ -40,12 +39,12 @@ async function main() {
           connect: p.tags,
         },
       },
-    });
-  }
+    })
+  );
 
   // skills
-  for (let s of skills) {
-    await prisma.skill.create({
+  await processAsync(skills, (s) =>
+    prisma.skill.create({
       data: {
         title: s.title,
         priority: s.priority,
@@ -53,8 +52,8 @@ async function main() {
           connect: s.tags,
         },
       },
-    });
-  }
+    })
+  );
 }
 
 main()

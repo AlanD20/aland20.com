@@ -1,7 +1,7 @@
-import NextAuth, { AuthOptions, Profile } from 'next-auth';
+import { prisma } from '@/config/prisma';
 import GithubProvider from 'next-auth/providers/github';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import { prisma } from '@/config/prisma';
+import NextAuth, { AuthOptions, Profile } from 'next-auth';
 
 interface GitHubProfile extends Profile {
   login: string;
@@ -13,6 +13,7 @@ interface GitHubProfile extends Profile {
 }
 
 export const authOptions: AuthOptions = {
+  // secret: process.env.NEXTAUTH_SECRET as string,
   adapter: PrismaAdapter(prisma),
   // Configure one or more authentication providers
   providers: [
@@ -20,7 +21,6 @@ export const authOptions: AuthOptions = {
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
-    // ...add more providers here
   ],
   callbacks: {
     async signIn({ profile }) {
@@ -36,7 +36,6 @@ export const authOptions: AuthOptions = {
       return token;
     },
     async session({ session }) {
-      console.log('asking for ession: ', session);
       return session;
     },
   },

@@ -25,14 +25,13 @@ export const useFetch =
     try {
       const resolved = await axios({ method, url, data });
       console.info({
+        message: 'Respond Information',
         response: resolved.data,
-        message:
-          "No, I didn't forget to remove this console log. This log gives more information about the response.",
       });
 
       return resolved.data;
     } catch (error: any) {
-      return error.response.data;
+      return error?.response?.data;
     }
   };
 
