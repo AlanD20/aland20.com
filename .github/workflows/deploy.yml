@@ -6,22 +6,29 @@ jobs:
   lint-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
         with:
-          node-version: "16"
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
       - uses: actions/checkout@v3
       - name: Create env file
         run: cp .env.example .env
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
       - name: Build CSS
-        run: yarn css:prod
+        run: pnpm css:prod
       - name: Run nextjs lint
-        run: yarn lint
+        run: pnpm lint
       - name: Run eslint
-        run: yarn eslint
+        run: pnpm eslint
       - name: Build project
-        run: yarn build
+        run: pnpm build
   # deploy:
   #   needs: [ "lint-build" ]
   #   runs-on: ubuntu-latest

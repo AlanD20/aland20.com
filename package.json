@@ -1,13 +1,13 @@
 {
   "author": "AlanD20",
   "name": "aland20-portfolio",
-  "description": "Dyanamic portfolio",
+  "description": "dynamic portfolio",
   "license": "GPL",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "private": true,
   "scripts": {
-    "dev": "yarn css:prod && next dev",
-    "build": "yarn css:prod && next build",
+    "dev": "pnpm css:prod && next dev",
+    "build": "pnpm css:prod && next build",
     "start": "next start",
     "lint": "next lint",
     "eslint": "eslint pages src",
@@ -18,10 +18,10 @@
     "prisma:studio": "prisma studio",
     "db:push": "prisma db push --force-reset && prisma generate",
     "db:seed": "prisma db seed",
-    "db:reset": "yarn db:push && yarn db:seed",
+    "db:reset": "pnpm db:push && pnpm db:seed",
     "generate:secret": "openssl rand -base64 32",
     "pm2": "pm2 start pm2.json",
-    "deploy": "yarn db:reset && yarn build"
+    "vercel:deploy": "pnpm db:reset && pnpm build"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",

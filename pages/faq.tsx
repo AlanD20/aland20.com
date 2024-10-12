@@ -18,6 +18,10 @@ const FaqPage: NextPage<Props> = ({ faqs }: Props) => (
       are the reasons behind my choices. So, let me know if you have any other
       questions. I will try to add new ones in the future.
     </p>
+    <p>
+      You can always try running this website locally and checkout the source
+      code in the github repository.
+    </p>
 
     <div className="list w-full">
       {faqs.length > 0 ? (

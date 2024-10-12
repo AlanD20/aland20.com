@@ -2,16 +2,18 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "checkJs": false,
     "jsx": "preserve",
     "incremental": true,
     "noEmit": true,
-
     "strict": true,
     "strictNullChecks": true,
-
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": false,
@@ -19,22 +21,40 @@
     "noFallthroughCasesInSwitch": true,
     "strictPropertyInitialization": true,
     "forceConsistentCasingInFileNames": true,
-
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@config": ["src/config/app.ts"],
-      "@misc/*": ["src/components/misc/*"],
-      "@comp/*": ["src/components/*"],
-      "@/*": ["src/*"],
-      "@/seed/*": ["prisma/*"]
+      "@config": [
+        "src/config/app.ts"
+      ],
+      "@misc/*": [
+        "src/components/misc/*"
+      ],
+      "@comp/*": [
+        "src/components/*"
+      ],
+      "@/*": [
+        "src/*"
+      ],
+      "@/seed/*": [
+        "prisma/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

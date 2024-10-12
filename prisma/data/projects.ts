@@ -27,6 +27,53 @@ const projects = [
     ],
   },
   {
+    priority: 6,
+    title: 'Dot Files',
+    content:
+      '@pg My personal @marker([.dotfiles]) where you find all the configuration files for my setup and scripts where I commonly use in day-to-day basis. @block --- @endblock @block It also includes a few documentation pages about how to setup your laptop or workspace from scratch. @link([https://github.com/AlanD20/.dotfiles/tree/main/workspace-setup][You may find them here]). I usually use this whenever I have to format my latop :) @endblock @endpg',
+    sourceLink: 'https://github.com/AlanD20/.dotfiles',
+    previewLink: '',
+    createdDate: '2023-01-16',
+    completedDate: null,
+    tags: [
+      { id: 69 },
+      { id: 26 },
+      { id: 9 },
+      { id: 15 },
+      { id: 70 },
+      { id: 71 },
+    ],
+  },
+  {
+    priority: 5,
+    title: 'PHP Helpers',
+    content:
+      '@pg Some useful PHP classes and helpers to speed up basic projects. @endpg',
+    sourceLink: 'https://github.com/AlanD20/php-helpers',
+    previewLink: '',
+    createdDate: '2023-08-08',
+    completedDate: null,
+    tags: [{ id: 34 }, { id: 66 }, { id: 67 }, { id: 29 }, { id: 68 }],
+  },
+  {
+    priority: 5,
+    title: 'Python Utilities',
+    content:
+      '@pg Some useful Python utilities and helpers to speed up basic scripts for automation or testing. @endpg',
+    sourceLink: 'https://github.com/AlanD20/pytils',
+    previewLink: '',
+    createdDate: '2024-04-27',
+    completedDate: null,
+    tags: [
+      { id: 38 },
+      { id: 66 },
+      { id: 67 },
+      { id: 68 },
+      { id: 29 },
+      { id: 63 },
+    ],
+  },
+  {
     priority: 5,
     title: 'Car Center',
     content:
@@ -136,7 +183,7 @@ const projects = [
     priority: 1,
     title: 'Web Blog',
     content:
-      '@pg The purpose of this project was to create a simple web blog using HTML/ CSS/ Vanilla Javascript to pass my course during my study. The website allows registeration and authentication. Registered users are be able to do the following actions: @block - Manage their accounts. @endblock @block - Publish articles about their favorite news and thoughts! @endblock @block - Create/ Delete their own articles. @endblock @endpg',
+      '@pg The purpose of this project was to create a simple web blog using HTML/ CSS/ Vanilla Javascript to pass my course during my study. The website allows registration and authentication. Registered users are be able to do the following actions: @block - Manage their accounts. @endblock @block - Publish articles about their favorite news and thoughts! @endblock @block - Create/ Delete their own articles. @endblock @endpg',
     sourceLink: 'https://github.com/AlanD20/web-blog',
     previewLink: 'https://webblog.aland20.repl.co/',
     createdDate: '2021-03-21',

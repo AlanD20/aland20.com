@@ -23,11 +23,11 @@ const ProjectsPage: NextPage<Props> = ({ projects }: Props) => (
       updated each time I make a new project.
     </p>
     <p>
-      I will only try to share those projects that I&apos;m proud of. Although,
-      some of them might be easy for someone else, but I consider them
-      challenging and interesting to bring solutions from my own experience.
-      Some of them are my first hand-on experience for the technologies I have
-      used.
+      I will only try to put those projects that probably worth sharing here.
+      Although checkout my github for all the projects. Some of them are my
+      first hand-on experience for a tool or language and some are just
+      utilities and helper scripts that helps me to do my daily works
+      conveniently.
     </p>
 
     <div className="cards">
