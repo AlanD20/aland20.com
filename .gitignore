@@ -45,4 +45,3 @@ prisma/export/
 /styles/**
 
 *.lock
-*-lock*
