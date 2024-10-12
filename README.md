@@ -1,7 +1,7 @@
 ### AlanD20 Portfolio
 
 ---
-Dynamic porfolio with support for admin dashboard to control the website.
+Dynamic portfolio with support for admin dashboard to control the website.
 
 To access the dashboard with the features, you must be authorized. Otherwise, you'll be redirected to the main page by taking advantage of Nextjs v12 middlewares.
 
@@ -23,13 +23,13 @@ To access the dashboard with the features, you must be authorized. Otherwise, yo
 1. Install the packages
 
     ```bash
-    yarn install
+    pnpm install
     ```
 
 2. You may generate a secret key for `NEXTAUTH_SECRET` environment variable using the following command. But, make sure you have installed `openssl`.
 
     ```bash
-    yarn generate:secret
+    pnpm generate:secret
     ```
 
 3. The following files must be changed during deployment in production:
@@ -40,19 +40,19 @@ To access the dashboard with the features, you must be authorized. Otherwise, yo
 4. Generate the database schema with default seeding
 
     ```bash
-    yarn db:reset
+    pnpm db:reset
     ```
 
 5. Finally, build the project and start pm2 config.
 
     ```bash
-    yarn build && yarn pm2
+    pnpm build && pnpm pm2
     ```
 
 - For adding new changes, build the project and restart pm2 by passing our application name which we set in `pm2.json` file.
 
     ```bash
-    yarn build && pm2 restart nextjs-portfolio
+    pnpm build && pm2 restart nextjs-portfolio
     ```
 
 ---
@@ -62,14 +62,14 @@ To access the dashboard with the features, you must be authorized. Otherwise, yo
 1. Install packages
 
     ```bash
-    yarn install
+    pnpm install
     ```
 
 2. Define environment variables in .env file with your local environment. You can use .env.sample as a starting point
 3. Run the dev server
 
     ```bash
-    yarn dev
+    pnpm dev
     ```
 
 4. And everything should work :) Don't forget to checkout [src/config](/src/config/) directory to configure the app.
@@ -81,35 +81,35 @@ To access the dashboard with the features, you must be authorized. Otherwise, yo
 - postcss commands.
 
   ```bash
-  yarn css:dev # Watch for changes during css files for development
-  yarn css:prod # build minified css files for production
+  pnpm css:dev # Watch for changes during css files for development
+  pnpm css:prod # build minified css files for production
   ```
 
 - Any changes in Prisma schema, you must push it to the database and generate the `prisma/client` file. The following command does both job at once.
 
     ```bash
-    yarn db:push
+    pnpm db:push
     ```
 
 - Prisma commands.
 
     ```bash
-    yarn db:reset # Create + Seed with base data
-    yarn db:push # Create only
-    yarn db:seed # Seed only
-    yarn prisma:studio # Start Prisma studio server
+    pnpm db:reset # Create + Seed with base data
+    pnpm db:push # Create only
+    pnpm db:seed # Seed only
+    pnpm prisma:studio # Start Prisma studio server
     ```
 
 - You may want to manually run prettier format.
 
     ```bash
-    yarn format
+    pnpm format
     ```
 
 - You may want to generate a secret key for *NEXTAUTH_URL*. You need openssl installed on the machine.
 
     ```bash
-    yarn generate:secret
+    pnpm generate:secret
     ```
 
 ---
