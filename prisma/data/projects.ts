@@ -32,7 +32,7 @@ const projects = [
     content:
       '@pg My personal @marker([.dotfiles]) where you find all the configuration files for my setup and scripts where I commonly use in day-to-day basis. @block --- @endblock @block It also includes a few documentation pages about how to setup your laptop or workspace from scratch. @link([https://github.com/AlanD20/.dotfiles/tree/main/workspace-setup][You may find them here]). I usually use this whenever I have to format my latop :) @endblock @endpg',
     sourceLink: 'https://github.com/AlanD20/.dotfiles',
-    previewLink: null,
+    previewLink: '',
     createdDate: '2023-01-16',
     completedDate: null,
     tags: [
@@ -50,7 +50,7 @@ const projects = [
     content:
       '@pg Some useful PHP classes and helpers to speed up basic projects. @endpg',
     sourceLink: 'https://github.com/AlanD20/php-helpers',
-    previewLink: null,
+    previewLink: '',
     createdDate: '2023-08-08',
     completedDate: null,
     tags: [{ id: 34 }, { id: 66 }, { id: 67 }, { id: 29 }, { id: 68 }],
@@ -61,7 +61,7 @@ const projects = [
     content:
       '@pg Some useful Python utilities and helpers to speed up basic scripts for automation or testing. @endpg',
     sourceLink: 'https://github.com/AlanD20/pytils',
-    previewLink: null,
+    previewLink: '',
     createdDate: '2024-04-27',
     completedDate: null,
     tags: [

@@ -49,7 +49,7 @@ const ProjectTile: NextPage<Props> = ({
     <HTMLToReactNode content={content} />
 
     <div className="card__footer">
-      {sourceLink && (
+      {sourceLink !== '' && (
         <Link
           className="btn btn--secondary"
           href={sourceLink}
@@ -60,7 +60,7 @@ const ProjectTile: NextPage<Props> = ({
           Source Code
         </Link>
       )}
-      {previewLink && (
+      {previewLink !== '' && (
         <Link
           className="btn btn--primary"
           href={previewLink}

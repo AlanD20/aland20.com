@@ -3,7 +3,7 @@
   "name": "aland20-portfolio",
   "description": "dynamic portfolio",
   "license": "GPL",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "private": true,
   "scripts": {
     "dev": "pnpm css:prod && next dev",
@@ -21,7 +21,7 @@
     "db:reset": "pnpm db:push && pnpm db:seed",
     "generate:secret": "openssl rand -base64 32",
     "pm2": "pm2 start pm2.json",
-    "deploy": "pnpm db:push && pnpm build"
+    "vercel:deploy": "pnpm db:reset && pnpm build"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
