@@ -8,6 +8,7 @@ const prisma = new PrismaClient();
 
 async function processAsync(array: any[], action: Function) {
   for (const data of array) {
+    // eslint-disable-next-line no-await-in-loop
     await action(data);
   }
 }

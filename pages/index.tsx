@@ -14,28 +14,43 @@ type Props = {
 
 const HomePage: NextPage<Props> = ({ skills }: Props) => (
   <main className="page about">
-    <h2 className="title">Welcome to my portfolio!</h2>
+    <h2 className="title">Welcome to my personal website!</h2>
 
     <p>
-      Hey! I&apos;m Aland, working as a software engineer. I obtained my
-      bachelor of computer engineering degree in Warsaw, Poland in 2023. This is
-      my personal website where I will showcase my projects and other stuffs
-      that I work on.
+      Hey! I&apos;m Aland, working as a software Engineer and Cloud
+      Infrastructure Engineer. I obtained my bachelor of computer engineering
+      degree in Warsaw, Poland in 2023. This is my personal website where you
+      can find my experience, projects, and probably more stuff.
     </p>
     <p>
-      Here is a list of technologies I have tried. The list will be updated when
-      I use any new technologies in my projects or any project I work on.
-      Although, it may not be up to date with everything I use, but I try my
-      best to keep them up to date so that in the future, each tech will be
-      linked to its own projects.
+      I have experience in leading many complex integration projects that
+      require leading, designing, implementation decisions for scalability,
+      maintenance, monitoring, logging, and communication with many teams to
+      make this integration workflow across multiple products into existence. In
+      Cloud Infrastructure side, I worked on maintenance, reliability, CI, CD,
+      monitoring, and logging of the infrastructure. I have been getting into a
+      lot of enterprise level services particularly with AWS services and
+      microservice architecture with Event-Driven and Queue System Design.
     </p>
     <p>
-      - Experienced in application and web development.
+      - Experienced in Software Development and led many projects from design to
+      deployment.
       <span className="block">
         - Understanding the fundamental of data structure & Algorithms.
       </span>
       <span className="block">
-        - Knowledge of Security, Protection, Networking, Database.
+        - Decently deep understanding of relational databases.
+      </span>
+      <span className="block">
+        - Knowledge of Security, Protection, Networking in advanced level.
+      </span>
+      <span className="block">
+        - Understanding of many scalable architecture such as Event-Driven,
+        Queue System, monolithic, and microservices.
+      </span>
+      <span className="block">
+        - Understanding of monitoring and logging such as OpenSearch setup,
+        FilaBeat, Grafana, Prometheus.
       </span>
     </p>
 

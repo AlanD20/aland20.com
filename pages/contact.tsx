@@ -19,6 +19,11 @@ const ContactPage: NextPage = () => (
       <span className="marker"> aland20@pm.me</span>. Or, you can submit the
       following form to send me an email.
     </p>
+    <p>
+      <span className="marker">Note:</span> The form might be disabled because I
+      dont like to configure SMTP server. In this case, send me an email
+      directly.
+    </p>
 
     <ContactForm />
   </main>
